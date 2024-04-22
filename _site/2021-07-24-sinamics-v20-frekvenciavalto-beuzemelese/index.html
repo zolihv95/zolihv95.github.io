@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sinamics V20 Frekvenciaváltó beüzemelése | Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Sinamics V20 Frekvenciaváltó beüzemelése" />
+<meta name="author" content="ZoliHV95" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A készülék fontosabb paramétereire térek ki, gyors egyszerű beállítás módjára:típus: 6SL3210-5BB15-5UV1&nbsp; (1 fázis be, 3 ki / 0,55kW) A beállítás gombjaival való navigálás pofon egyszerű, bárki rájön pillanatok alatt, (főleg ha belenéz 1-2 videóba a neten) :-) de mégis csak megemlítést teszek, hogy tiszta legyen a kép.&lt;p&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt; Az „OK” gombbal választjuk ki az adott módot, vannak módok, amik makrókat tartalmaznak, ezek közül választhatunk, melyiket használjuk, ill. melyiket akarjuk későbbre beállítani, majd kiválasztani, ha netalántán például később más motor kerülne az eszközre. Ha ez számunkra szükségtelen, az „OK” gombbal rámegyünk az alap makróra, hogy megadhassuk az adott paramétert, vagy értéket. A beállítást az „OK” gombbal nyugtázzuk, ilyenkor előfordul, hogy nem tért vissza menübe, ekkor az „M” –et használjuk. 1. Első beüzemelés: Beüzemeléskor egy gyári visszaállítás ajánlott a beviteli funkciók beállíthatóságának lehetősége miatt. A teljes törlés és visszaállítás: a 21-es értékkel érhető el. De mindezek előtt célszerű ellenőrizni, hogy a Paraméter szűrő: 0 értékre, vagyis Összes paraméterre legyen állítva.  A felhasználói hozzáférési szint privillégiuma szakértői szintre állítható. így még nagyobb esélyt adva a szabad beállíthatóságnak (ez nem biztos, hogy feltétlen szükséges). p0003 felhasználói hozzáférési szint: = 0: a felhasználó által meghatározott paraméterek listája (a paramétereknek azt a korlátozott sorozatát határozza meg, amelyhez a végfelhasználónak hozzáférése van. A használat részleteiről lásd a P0013-at). = 1: szokásos (hozzáférést engedélyez a leggyakrabban használt paraméterekhez) = 2: kiterjesztett (kiterjesztett hozzáférést engedélyez több paraméterhez) = 3: Szakértő (csak szakértői használatra) = 4: Szerviz (csak a hivatalos szerviz személyzet számára, jelszó védi) P0004 paraméter szűrő: = 0: Összes paraméter = 2: Inverter = 3: Motor = 5: Technológia alkalmazása / egységek = 7: Parancsok, bináris I/O = 8: Analóg bemenet és analóg kimenet = 10: Beállítási pont csatorna / RFG p0970 gyári visszaállítás: = 1: a paraméter visszaállítása a felhasználói alapértelmezett beállításra, ha az el van mentve, különben a gyári alapbeállításokra (visszaállítás a felhasználói alapértelmezett értékre) = 21: a paraméter visszaállítása a gyári alapértelmezett beállításra, és a felhasználói alapértelmezett érték törlése, ha az el volt mentve (visszaállítás a gyári alapértelmezett értékre) 2. Fontosabb paraméterek az adott motor beállításához: Példamotor adattábla: (az én esetemben)    _   _   _   _   _   _      _   _   _   _   _   _   _   _   _   _   THRIGE - TITAN&lt;/p&gt;" />
+<meta property="og:description" content="A készülék fontosabb paramétereire térek ki, gyors egyszerű beállítás módjára:típus: 6SL3210-5BB15-5UV1&nbsp; (1 fázis be, 3 ki / 0,55kW) A beállítás gombjaival való navigálás pofon egyszerű, bárki rájön pillanatok alatt, (főleg ha belenéz 1-2 videóba a neten) :-) de mégis csak megemlítést teszek, hogy tiszta legyen a kép.&lt;p&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt; Az „OK” gombbal választjuk ki az adott módot, vannak módok, amik makrókat tartalmaznak, ezek közül választhatunk, melyiket használjuk, ill. melyiket akarjuk későbbre beállítani, majd kiválasztani, ha netalántán például később más motor kerülne az eszközre. Ha ez számunkra szükségtelen, az „OK” gombbal rámegyünk az alap makróra, hogy megadhassuk az adott paramétert, vagy értéket. A beállítást az „OK” gombbal nyugtázzuk, ilyenkor előfordul, hogy nem tért vissza menübe, ekkor az „M” –et használjuk. 1. Első beüzemelés: Beüzemeléskor egy gyári visszaállítás ajánlott a beviteli funkciók beállíthatóságának lehetősége miatt. A teljes törlés és visszaállítás: a 21-es értékkel érhető el. De mindezek előtt célszerű ellenőrizni, hogy a Paraméter szűrő: 0 értékre, vagyis Összes paraméterre legyen állítva.  A felhasználói hozzáférési szint privillégiuma szakértői szintre állítható. így még nagyobb esélyt adva a szabad beállíthatóságnak (ez nem biztos, hogy feltétlen szükséges). p0003 felhasználói hozzáférési szint: = 0: a felhasználó által meghatározott paraméterek listája (a paramétereknek azt a korlátozott sorozatát határozza meg, amelyhez a végfelhasználónak hozzáférése van. A használat részleteiről lásd a P0013-at). = 1: szokásos (hozzáférést engedélyez a leggyakrabban használt paraméterekhez) = 2: kiterjesztett (kiterjesztett hozzáférést engedélyez több paraméterhez) = 3: Szakértő (csak szakértői használatra) = 4: Szerviz (csak a hivatalos szerviz személyzet számára, jelszó védi) P0004 paraméter szűrő: = 0: Összes paraméter = 2: Inverter = 3: Motor = 5: Technológia alkalmazása / egységek = 7: Parancsok, bináris I/O = 8: Analóg bemenet és analóg kimenet = 10: Beállítási pont csatorna / RFG p0970 gyári visszaállítás: = 1: a paraméter visszaállítása a felhasználói alapértelmezett beállításra, ha az el van mentve, különben a gyári alapbeállításokra (visszaállítás a felhasználói alapértelmezett értékre) = 21: a paraméter visszaállítása a gyári alapértelmezett beállításra, és a felhasználói alapértelmezett érték törlése, ha az el volt mentve (visszaállítás a gyári alapértelmezett értékre) 2. Fontosabb paraméterek az adott motor beállításához: Példamotor adattábla: (az én esetemben)    _   _   _   _   _   _      _   _   _   _   _   _   _   _   _   _   THRIGE - TITAN&lt;/p&gt;" />
+<link rel="canonical" href="http://localhost:4000/2021-07-24-sinamics-v20-frekvenciavalto-beuzemelese/" />
+<meta property="og:url" content="http://localhost:4000/2021-07-24-sinamics-v20-frekvenciavalto-beuzemelese/" />
+<meta property="og:site_name" content="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-24T21:54:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sinamics V20 Frekvenciaváltó beüzemelése" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"ZoliHV95"},"dateModified":"2021-07-24T21:54:00+02:00","datePublished":"2021-07-24T21:54:00+02:00","description":"A készülék fontosabb paramétereire térek ki, gyors egyszerű beállítás módjára:típus: 6SL3210-5BB15-5UV1&nbsp; (1 fázis be, 3 ki / 0,55kW) A beállítás gombjaival való navigálás pofon egyszerű, bárki rájön pillanatok alatt, (főleg ha belenéz 1-2 videóba a neten) :-) de mégis csak megemlítést teszek, hogy tiszta legyen a kép.&lt;p&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt; Az „OK” gombbal választjuk ki az adott módot, vannak módok, amik makrókat tartalmaznak, ezek közül választhatunk, melyiket használjuk, ill. melyiket akarjuk későbbre beállítani, majd kiválasztani, ha netalántán például később más motor kerülne az eszközre. Ha ez számunkra szükségtelen, az „OK” gombbal rámegyünk az alap makróra, hogy megadhassuk az adott paramétert, vagy értéket. A beállítást az „OK” gombbal nyugtázzuk, ilyenkor előfordul, hogy nem tért vissza menübe, ekkor az „M” –et használjuk. 1. Első beüzemelés: Beüzemeléskor egy gyári visszaállítás ajánlott a beviteli funkciók beállíthatóságának lehetősége miatt. A teljes törlés és visszaállítás: a 21-es értékkel érhető el. De mindezek előtt célszerű ellenőrizni, hogy a Paraméter szűrő: 0 értékre, vagyis Összes paraméterre legyen állítva.  A felhasználói hozzáférési szint privillégiuma szakértői szintre állítható. így még nagyobb esélyt adva a szabad beállíthatóságnak (ez nem biztos, hogy feltétlen szükséges). p0003 felhasználói hozzáférési szint: = 0: a felhasználó által meghatározott paraméterek listája (a paramétereknek azt a korlátozott sorozatát határozza meg, amelyhez a végfelhasználónak hozzáférése van. A használat részleteiről lásd a P0013-at). = 1: szokásos (hozzáférést engedélyez a leggyakrabban használt paraméterekhez) = 2: kiterjesztett (kiterjesztett hozzáférést engedélyez több paraméterhez) = 3: Szakértő (csak szakértői használatra) = 4: Szerviz (csak a hivatalos szerviz személyzet számára, jelszó védi) P0004 paraméter szűrő: = 0: Összes paraméter = 2: Inverter = 3: Motor = 5: Technológia alkalmazása / egységek = 7: Parancsok, bináris I/O = 8: Analóg bemenet és analóg kimenet = 10: Beállítási pont csatorna / RFG p0970 gyári visszaállítás: = 1: a paraméter visszaállítása a felhasználói alapértelmezett beállításra, ha az el van mentve, különben a gyári alapbeállításokra (visszaállítás a felhasználói alapértelmezett értékre) = 21: a paraméter visszaállítása a gyári alapértelmezett beállításra, és a felhasználói alapértelmezett érték törlése, ha az el volt mentve (visszaállítás a gyári alapértelmezett értékre) 2. Fontosabb paraméterek az adott motor beállításához: Példamotor adattábla: (az én esetemben)    _   _   _   _   _   _      _   _   _   _   _   _   _   _   _   _   THRIGE - TITAN&lt;/p&gt;","headline":"Sinamics V20 Frekvenciaváltó beüzemelése","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-07-24-sinamics-v20-frekvenciavalto-beuzemelese/"},"url":"http://localhost:4000/2021-07-24-sinamics-v20-frekvenciavalto-beuzemelese/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Sinamics V20 Frekvenciaváltó beüzemelése</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-07-24T21:54:00+02:00" itemprop="datePublished">Jul 24, 2021
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">ZoliHV95</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A készülék fontosabb paramétereire térek ki, gyors egyszerű beállítás módjára:<br /><br />típus: 6SL3210-5BB15-5UV1&nbsp; (1 fázis be, 3 ki / 0,55kW)<br /><br /></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGVOdR4EcQ24q5IkyVgjIsziRwWVyJ9gSFqm7b6STi6XaSq71hU9LH4T1oOZ48qDXUAnJWWb9rdubixdVOlMHHVBI2cwNnyOPCQvk_TLfivBXUtjRiZbEahACbDIlnIiRkJZ3-HJbgezsb/" style="margin-left: 1em; margin-right: 1em;"><img alt="SIEMENS Sinamics V20 -5UV1" data-original-height="570" data-original-width="406" height="320" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGVOdR4EcQ24q5IkyVgjIsziRwWVyJ9gSFqm7b6STi6XaSq71hU9LH4T1oOZ48qDXUAnJWWb9rdubixdVOlMHHVBI2cwNnyOPCQvk_TLfivBXUtjRiZbEahACbDIlnIiRkJZ3-HJbgezsb/w229-h320/Siemens-6SL3210-5BB15-5UV1.jpg" title="SIEMENS Sinamics V20 -5UV1" width="229" /></a></div><br />A beállítás gombjaival való navigálás pofon egyszerű, bárki rájön pillanatok
+alatt, (főleg ha belenéz 1-2 videóba a neten) :-) de mégis csak megemlítést
+teszek, hogy tiszta legyen a kép.<p></p><p class="MsoNormal">
+Az „OK” gombbal választjuk ki az adott módot, vannak módok, amik makrókat
+tartalmaznak, ezek közül választhatunk, melyiket használjuk, ill. melyiket
+akarjuk későbbre beállítani, majd kiválasztani, ha netalántán például később
+más motor kerülne az eszközre. Ha ez számunkra szükségtelen, az „OK” gombbal rámegyünk
+az alap makróra, hogy megadhassuk az adott paramétert, vagy értéket. A
+beállítást az „OK” gombbal nyugtázzuk, ilyenkor előfordul, hogy nem tért vissza
+menübe, ekkor az „M” –et használjuk.<br />
+<br />
+<b>1. <u>Első beüzemelés</u>:</b><br />
+<br />
+Beüzemeléskor egy gyári visszaállítás ajánlott a beviteli funkciók
+beállíthatóságának lehetősége miatt.<br />
+A teljes törlés és visszaállítás: a 21-es értékkel érhető el.<br />
+De mindezek előtt célszerű ellenőrizni, hogy a Paraméter szűrő: 0 értékre,
+vagyis Összes paraméterre legyen állítva.&nbsp;
+A felhasználói hozzáférési szint privillégiuma szakértői szintre
+állítható. így még nagyobb esélyt adva a szabad beállíthatóságnak (ez nem
+biztos, hogy feltétlen szükséges).<br />
+<br />
+<b>p0003</b> felhasználói hozzáférési szint:<br />
+= 0: a felhasználó által meghatározott paraméterek listája (a paramétereknek
+azt a korlátozott sorozatát határozza meg, amelyhez a végfelhasználónak
+hozzáférése van. A használat részleteiről lásd a P0013-at).<br />
+= 1: szokásos (hozzáférést engedélyez a leggyakrabban használt paraméterekhez)<br />
+= 2: kiterjesztett (kiterjesztett hozzáférést engedélyez több paraméterhez)<br /><b>
+= 3</b>: Szakértő (csak szakértői
+használatra)<br />
+= 4: Szerviz (csak a hivatalos szerviz személyzet számára, jelszó védi)<br />
+<br />
+<b>P0004</b> paraméter szűrő:<br /><b>
+= 0</b>: Összes paraméter<br />
+= 2: Inverter<br />
+= 3: Motor<br />
+= 5: Technológia alkalmazása / egységek<br />
+= 7: Parancsok, bináris I/O<br />
+= 8: Analóg bemenet és analóg kimenet<b><br />
+</b>= 10: Beállítási pont csatorna / RFG<b><br />
+<br />
+p0970</b> gyári visszaállítás: <br />
+= 1: a paraméter visszaállítása a felhasználói alapértelmezett beállításra, ha
+az el van mentve, különben a gyári alapbeállításokra (visszaállítás a
+felhasználói alapértelmezett értékre)<br /><b>
+= 21</b>: a paraméter visszaállítása a
+gyári alapértelmezett beállításra, és a felhasználói alapértelmezett érték
+törlése, ha az el volt mentve (visszaállítás a gyári alapértelmezett értékre)<br />
+<br />
+<br />
+<b>2. <u>Fontosabb paraméterek az adott
+motor beállításához</u>:</b><br />
+<br />
+Példamotor adattábla: (az én esetemben)<br />
+_&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp; &nbsp;_&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; <br />
+<br />
+THRIGE - TITAN<o:p></o:p></p>
+
+<p class="MsoNormal">Mot 3. ~ <b>50Hz</b>&nbsp; IEC 34-1-1960<o:p></o:p></p>
+
+<p class="MsoNormal">MT 71 B 14 F 85-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S 43<o:p></o:p></p>
+
+<p class="MsoNormal"><b>0,37 kW</b>
+0,5hp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>1400 r/min</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>380V </b>Y<b> 1,3A</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 220V Δ 2,3A<o:p></o:p></p>
+
+<p class="MsoNormal">Class B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cos.
+φ=0.69<o:p></o:p></p>
+
+<p class="MsoNormal">Cat. No. MK 110 097-A<br />
+_&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; _&nbsp;&nbsp; _&nbsp;&nbsp;
+_&nbsp;&nbsp; <br />
+<br />
+A &lt;no setting&gt; jelzéssel ellátott paraméterek inkább csak
+ellenőrizendőek, általában az itt található értékektől nem igen lesz eltérés,
+ha mégis célszerű az itt feltüntetetteket alkalmazni. (Kivétel a motor
+adatokat, az egyértelműen mindenkinek adott. Sok minden már csak a gyári
+visszaállítást követően is előfordul, hogy eltér, ezért csak megéri szépen
+sorban végighaladni)! :-)<br />
+A makrós beállításokra utaló értékek eltérhetnek és nem feltétlen szükséges
+módosítani.<br />
+<br />
+<b>p0003</b> [Felhasználói hozzáfárási
+szint] &lt;no setting&gt;<br />
+= <b>1</b>: Szokásos (hozzáférést
+engedélyez a leggyakrabban használt paraméterekhez)<br />
+<br />
+<b>p0004</b> [Paraméter szűrő]&nbsp; &lt;no setting&gt;<br />
+= <b>0</b>: Összes paraméter<br />
+<br />
+<b>p0010</b> [Beüzemelési paraméter] &lt;no
+setting&gt; <br />
+= <b>0</b>: Kész<o:p></o:p></p>
+
+<p class="MsoNormal"><b>r0018</b> [Firmware
+version] &lt;no setting&gt; <br />
+(ez max csak ellenőrizendő)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0100</b> Európa /
+Észak-Amerika &lt;no setting&gt;<br />
+= <b>0</b>: Európa [kW], motor
+alapfrekvenciája 50 Hz<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0301</b> [Motor
+adatok névleges teljesítmény alapján] &lt;no setting&gt;<br />
+= 0.37 kW<b> </b>(ez csak akkor szükséges,
+ha nincs meg a motornak az adattáblája, így autómatikusan beállítható minden
+szükséges paraméter csak teljesítményből)<br />
+<br />
+<b>p0304</b> [Névleges motorfeszültség]<br />
+= <b>380 V</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0305</b> [Névleges
+motor áramerősség]<br />
+= <b>1,30 A</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0307</b> [Névleges motorteljesítmény]<br />
+= <b>0.37 kW</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0308</b> [Névleges
+motor cos φ]<br />
+= <b>0.690</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0310</b> [Névleges
+motor frekvencia] <br />
+= <b>50 Hz</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0311</b> [Névleges
+motorfordulat (ford/perc) ]<br />
+= <b>1400 rpm</b><o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0507</b> [Alkalmazás
+makró] &lt;no setting&gt;<br />
+= <b>0 </b>(előfordulhat más érték)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0700</b> [A parancs
+forrásának kiválasztása] &lt;no setting&gt;<br />
+= <b>1</b>: Kezelőpanel (billentyűzet)<br />
+<br />
+<b>p0717</b> (Csatlakozás makrója) &lt;no
+setting&gt;<br />
+= <b>0 </b>(előfordulhat más érték)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p0970</b> [Gyári
+visszaállítás] &lt;no setting&gt; <br />
+= <b>0</b>: Letiltva<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p1000</b> [Frekvencia
+beállítási pont kijelölése] &lt;no setting&gt; <br />
+= <b>1</b>: MOP beállítási pont<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p1080</b> [Minimális
+frekvencia] <br />
+= <b>15 Hz</b> (opcionális érték lehet)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p1082</b> [Maximális
+frekvencia Hz] <br />
+= <b>50 Hz</b> (általában a motor
+frekijével egyenértékű, de szükség esetén növelhető, bár nem ajánlott, jobban
+terhelődik a motor)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p1120</b> [Felgyorsítási
+idő (ramp-up time)] <br />
+= <b>10</b> (opcionális érték lehet)<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p1121</b> [Lelassítási
+idő (ramp-down time)]<br />
+= <b>10</b> (opcionális érték lehet)<br />
+<br />
+<b>p1900</b> Motoradatok azonosításának
+kiválasztása &lt;no setting&gt;<br />
+= <b>0</b>: Letiltva<o:p></o:p></p>
+
+<p class="MsoNormal"><b>p2023</b> RS485
+protokoll kiválasztása &lt;no setting&gt;<br />
+=<b> 1</b>: USS<o:p></o:p></p>
+
+<p class="MsoNormal"><b>r3113</b> [CO / BO:
+Zárlati bit tömb (array)] &lt;no setting&gt;<br />
+(ez max csak ellenőrizendő)<o:p></o:p></p>
+
+<span style="font-size: 11pt; line-height: 107%;"><p class="MsoNormal"><b>p3900</b> [Gyors
+beüzemelés vége] &lt;no setting&gt;<br /><span style="font-size: 11pt;">= </span><b style="font-size: 11pt;">0</b><span style="font-size: 11pt;">: Nincs gyors
+beüzemelés<br /></span><span style="font-size: 11pt;"><br /><br /><span face="Calibri, sans-serif">Sorban a beállításokon végig érve a főmenübe lépünk,
+majd (kétmegszakítós kapcsolóval) áramtalanítjuk a készüléket, (megvárjuk míg
+teljesen kikapcsol). Ismét áram alá helyezés után a motort az „I” gombbal
+indítjuk, a nyilakkal állíthatjuk a frekvenciát, az „O” gombbal pedig
+megállíthatjuk a motort.</span></span></p><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: Calibri; mso-fareast-language: EN-US; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin;">Egyéb paraméter üzem közben is állítható, pl.: felfutási-lefutási idő, stb.
+(Mondjuk az előfordul, hogy a beállítás csak áramtalanítás és újra üzembe
+helyezés után lép érvénybe, áramtalanítani a készüléket egyértelműen a motor
+teljes leállítása ["O" gomb megnyomása] után ajánlott csak.)</span><br /><br /><br /></span>
+  </div><a class="u-url" href="/2021-07-24-sinamics-v20-frekvenciavalto-beuzemelese/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">ZoliHV95</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

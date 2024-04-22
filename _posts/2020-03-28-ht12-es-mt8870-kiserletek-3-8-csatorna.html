@@ -1,0 +1,194 @@
+---
+layout: post
+title: HT12 és MT8870 kísérletek 3 (8 csatorna)
+date: '2020-03-28T06:23:00.000-07:00'
+author: ZoliHV95
+tags:
+modified_time: '2020-03-28T06:34:04.565-07:00'
+thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCWl_mHRgwzAPlS-dQcGOQjiSZbe2Y28WjCRFqJwi5jhLM3816SiiR2gc1QrCmmJsNfQ4-vYbSEJ_qMeA4DSmvuR1H2z7Qb8FQkx5TzQFCwtorNuFmOe-r3XLErOh_sPRZRLKlA869K3j7/s72-c/decoder+sw+4x4.png
+blogger_id: tag:blogger.com,1999:blog-2393920038510161029.post-1037753282982633513
+blogger_orig_url: https://zolihv95.blogspot.com/2020/03/ht12-es-mt8870-kiserletek-3-8-csatorna.html
+---
+
+<b><span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;">A távvezérlő sematikája a 16
+dekódolásnak megfelelően 4x4-es key matrix gombsorral bővült.<br /></span></b><br />
+<div style="text-align: center;">
+<b><b><span style="font-size: 11pt; line-height: 107%;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCWl_mHRgwzAPlS-dQcGOQjiSZbe2Y28WjCRFqJwi5jhLM3816SiiR2gc1QrCmmJsNfQ4-vYbSEJ_qMeA4DSmvuR1H2z7Qb8FQkx5TzQFCwtorNuFmOe-r3XLErOh_sPRZRLKlA869K3j7/s1600/decoder+sw+4x4.png" imageanchor="1"><img border="0" height="193" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCWl_mHRgwzAPlS-dQcGOQjiSZbe2Y28WjCRFqJwi5jhLM3816SiiR2gc1QrCmmJsNfQ4-vYbSEJ_qMeA4DSmvuR1H2z7Qb8FQkx5TzQFCwtorNuFmOe-r3XLErOh_sPRZRLKlA869K3j7/s400/decoder+sw+4x4.png" width="400" /></a></span></b></b></div>
+<b><br />&nbsp;A Kísérletek és az egyéb részletek 8 pontban lettek felosztva.</b><br />
+<span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;">
+<br />
+<b>1. <u>Bevezető</u>:</b><br />
+<br />
+Az eddigi 7 csatornára alkalmas tranzisztoros meghajtó (ULN2003) IC-t
+felváltotta egy 8: ULN2803<br />
+<br />
+A demux. 0 és 15-ös kimenete a CD4043 (S/R latch) IC-k bekapcsoló kimeneteire
+kerültek.<br />
+Ezáltal alapból volt lehetőség észlelni a dekódolás minőségét.<br />
+<br />
+[A DTMF dekódolási gombok közül a 0 megfelelője: D, a 15-ösé pedig: C]<br />
+<br />
+A kísérletekben CD4077 XNOR logikai kapu szerepel.<br />
+<br />
+Először az eddig már végig tesztelt logikai kombinációk kerültek kipróbálásra,
+az eredmény egyértelműen jó volt, a 0 és hol a 15-ös relét leszámítva.<br />
+<br />
+<br />
+<b>2. <u>A kísérletek 1. nekifutásának levont következtetése és eredményei</u>:</b><br />
+<br />
+A HT12 oldalával voltak inkább problémák, ami nem csoda, hisz az előző
+kísérletek is utaltak a 4 bites kimenetek és a VT működésének időbeli
+különbségére. <br />
+Ennek kiküszöbölésére a VT előtt plusz logika került az áramkörbe.<br />
+így a kísérleti próbák haladtával az egyik kötés kiváló eredményt mutatott, de
+csak 74”HC”157 típusú multiplexerrel.<br />
+A VT-ből kijövő „hosszabbító” utáni mux. A/B váltó bemenetébe vezető logika kimeneti
+jelszintje testre szabható, attól függően, a multiplexer mely 4 bites bemenetén
+van a HT és az MT.<br />
+Továbbá próba képpen átkerült a mux. A/B váltó logikája az MT oldalára, szintén
+sikerese volt az eredmény. (egyértelműen csak 74„HC”157-el)<br />
+<br />
+A tesztek alatt, mikor a VT-ből kijövő plusz hosszabbító logika átkerült az MT
+oldalára, az eredmény minden multiplexer IC-vel és kötési próbával sikertelen
+volt!</span><br />
+<div style="text-align: center;">
+<span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvSv2hGru8wggCc-L3V34M6pyNZGj3BZApqGjQ1jgdl1pDjMNcdJHqi4j80cBUFf-Ect_PP3ZIFSw7AoEZ-kyrODGezaJa1cAAyqRaVAXPvLgzocA9e7eiPQynvlmR7gkDlTQPb5t9Rhoi/s1600/01_74HC57-de.EN.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="182" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvSv2hGru8wggCc-L3V34M6pyNZGj3BZApqGjQ1jgdl1pDjMNcdJHqi4j80cBUFf-Ect_PP3ZIFSw7AoEZ-kyrODGezaJa1cAAyqRaVAXPvLgzocA9e7eiPQynvlmR7gkDlTQPb5t9Rhoi/s400/01_74HC57-de.EN.png" width="400" /></a></span></div>
+<span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;">
+<br />
+<b>3. <u>A kísérletek 2. fázisának eredményei</u>:</b><br />
+<br />
+A kísérleteket követve gyanúsan gyors volt a 74”C”157 működése, emiatt pont a
+„lassítása” vált be egy plusz logika elhelyezésével, a de. EN. elé, ami eddig a
+mux. A/B előtt végzett működést.<br />
+<br />
+A mux. A/B kötődik simán az MT-StD vételjelző kimenetére
+vagy a HT-VT „hosszabbító” logikája után, erről az MT és a HT a mux. 4 bitjeinek
+elhelyezkedése dönt. Viszont annyi a különbség az 1.-höz képest, hogy itt nincs
+más lehetőség a variációra ezen kívül.<br />
+Mindkét esetben kiváló működést biztosít, de szintén csak 1 fajtájú
+multiplexerrel: 74”C”157-el!<br />
+<br />
+Úgyszint hibás volt a dekódolás, mikor a VT plusz „hosszabbító” logikája az
+MT-re került, és ennek különböző kísérletei egyaránt, mindkét mux. IC típusával.<br /></span><br />
+<div style="text-align: center;">
+<span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7T5RIhAbDrvTJ4a6TTtMZWIpnaMMooPZ6UKSPIsrcqEN6dI-XbZs97Go3jvckChZ-yYgai9vaQPcjdVdh2Y9cRgfAyBse4KvnqE4qUR7RxZqaqHAfEivBCADAKs_HOtUTOKi6lmhP32Gf/s1600/02_74C157-de.EN.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="165" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7T5RIhAbDrvTJ4a6TTtMZWIpnaMMooPZ6UKSPIsrcqEN6dI-XbZs97Go3jvckChZ-yYgai9vaQPcjdVdh2Y9cRgfAyBse4KvnqE4qUR7RxZqaqHAfEivBCADAKs_HOtUTOKi6lmhP32Gf/s400/02_74C157-de.EN.png" width="400" /></a></span></div>
+<span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;">
+<br /><b>4. <u>A kísérletek 3. szakaszának eredménye és egy plusz lehetőség</u>:</b><br />
+<br />
+Majdnem utolsó jónak mondható tesztek eredményeként a HT és az MT egyik
+vételjelző kimenete sem kívánt maga előtt „hosszabbító” logikát.<br />
+Egyszerűen csak a mux. A/B váltását kell közvetlenül, a vételjelző kimenetek
+valamelyikével megvalósítani.<br />
+Az eddigi HT-VT „hosszabbítójaként” használt logika a legvégső de. EN elé
+kerül.<br />
+Ez a módszer 74”HC”157 multiplexerrel kiválóan üzemképes. Viszont ha (például)
+a de. EN előtt lévő logika kimeneti jelszintje megváltozik, a de. STB-vel lesz tökéletesen
+üzemképes az áramkör, a különbség, hogy itt egy 74”C”157 mux. kíséretével.<br />
+<br />
+A variációi megegyeznek az eddig említett módszerek közül az 1.-vel.<br />
+<br />
+Különböző kötési tesztek csak úgy szint sikertelen eredményt mutattak,
+mindenhogy mindennel.<br /><br /><div style="text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRYpknUhm4eQeef08fS-RAaxEoVxTS_jLVuC6dQ5aLAK5xmcGIoiiobcR_WOn-BqRn11tCR8RwBgIR7U3hZYIZ_IoAXfA-JlAGoI0b1Qsn9jxtvA8hyphenhyphenPtIVK5vGlfhaEt7jaR4dFqLdYJ3/s1600/03_7HC-de.EN_74C-de.STB.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="207" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRYpknUhm4eQeef08fS-RAaxEoVxTS_jLVuC6dQ5aLAK5xmcGIoiiobcR_WOn-BqRn11tCR8RwBgIR7U3hZYIZ_IoAXfA-JlAGoI0b1Qsn9jxtvA8hyphenhyphenPtIVK5vGlfhaEt7jaR4dFqLdYJ3/s400/03_7HC-de.EN_74C-de.STB.png" width="400" /></a></div>
+<br />
+<b>5. <u>Kísérletek összegzése, egyéb részletek</u>:</b><br />
+<br />
+Összesítve mind a 3 módszert: a mux. EN különböző átkötéseivel való kísérletek
+mind rossz eredményt szültek.<br />
+XOR kapuval elvégzett kísérletek eredményei mind hibás dekódolást mutattak,
+mármint ami a 0 vagy néhol a 15-öst illeti. A sima XOR tulajdonságainak
+köszönhetően nem túl sok tesztre volt lehetőség. (A XNOR-hoz hasonlítva eltérő
+„áram időre” utal, még a csekély próba lehetőségeiből is ítélve, pedig direkt
+cserélve is lett, hátha meghibás az IC.) Esetleg ’TTL’ demultiplexer-nél jó
+lehet, mivel a próbakísérletek alapján annak kevesebb „hosszabbításra” volt
+szüksége.<br />
+<br />
+A fő működő és a sikertelen megoldások jónéhányánál a HT12E TE reteszelését
+tranzisztor helyett egy CMOS CD4049 fordító váltotta fel a próba képpen, az
+eredmény minden esetben változatlan volt!<br />
+Tehát gyakorlatban a sima (BC547B) tranzisztoros reteszelési megoldás teljesen
+elfogadható, de akár pici egylogikai IC (tiny logic, single logic) is
+használható a feladatra.<br /><br /><br />
+<b>6. <u>A transzmitterre és a DTMF IC-kre való kitérés</u>:</b><br />
+<br />
+A transzmitter modult külön kapcsoló választja el, a következő biztonsági
+okból: Az MT8870 üzembe lépésekor hajlamos aktivizálni a HT12-t, ezáltal a
+"0" vagyis a "D" átkerül a vevőre! <br />
+<br />
+A 4x4-es key matrix ABCD nyomógombjait a transzmitter áramkörben szereplő:
+KS58006, UM91215A DTMF generátor IC-k egyike sem támogatja. Emiatt a 369#
+gombokkal csak bekapcsolás végezhető, hogy legyen lehetőség mind a 8 relét
+működésbe hozni.<br />
+Esetleg az IC a DTMF hangok teljeskörű működéséért cserében a következő
+alternatívákkal váltható ki: S2559, ICM7206, MV/ TCM5089, TP5380(?),
+NTE1690(?), PCD3310<br />
+<br />
+Az MT8870 túnus bementén lévő ellenállások közül (a kondenzátor előtti) 10k
+ohm-ra változott, így az alap hangerőn lévő kommunikációs eszközökkel is
+boldogul, persze ha a jelforrás az átlagnál halkabb, már nem megy végbe kommunikáció,
+ebből ítélve pont ez a legreálisabb érték.<br />
+<br />
+A DMTF generátor IC-ről a dekódert audio jack választja el, ezzel lehetővé téve
+külön eszközből is a kommunikációt. A jack aljzat speciális belső leválasztó
+kimenettel rendelkezik, ami Ring vagyis a Right kimenetéről kapcsol le, csatlakoztatáskor.<br />
+A Ring (vagyis a Right, ami a mínusz) gyári adatlap szerinti helyes kötésnek
+bizonyul, az MT8870 tónus bementét illetően. Ettől függetlenül működik a Tip-el
+is gyakorlatban. (vagyis a Left-el, ami a +)<br />
+Gyakorlatilag megoldható Dual channel-el „sztereósra” is a kommunikációs jel átvitele,
+a dekóder IC kis módosításával, talán valamivel szakszerűbb megoldás, de mivel
+a sima gyári tónus generátor IC-k nem támogatják ezt a funkciót, így nem sok
+értelme lett volna ezzel szórakozni.<br /><br /><div style="text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcUQFfttkS3-k1WXFwdNCjGhkhmBdOzmweZxb_z6jFmTLDfROuXAXc4azf-fJmmAp6YuoVrWhRonjUniRyOwdDsbNyzPV8MzDlWvICDmkiUBto-7ak3L4xazY4LraiElkysPrgQmY1vyn_/s1600/e6127298-5c98-469c-91a4-18f644a913b4.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="282" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcUQFfttkS3-k1WXFwdNCjGhkhmBdOzmweZxb_z6jFmTLDfROuXAXc4azf-fJmmAp6YuoVrWhRonjUniRyOwdDsbNyzPV8MzDlWvICDmkiUBto-7ak3L4xazY4LraiElkysPrgQmY1vyn_/s400/e6127298-5c98-469c-91a4-18f644a913b4.png" width="400" /></a></div>
+<br />
+<b>7. <u>Próbakísérlet ’TTL’ demultiplexer IC-kkel</u>:</b><br />
+<br />
+TTL demux. alternatív megoldásra is került némi teszt az érdekesség kedvéért:<br />
+A kísérletben 74”LS, PC, HCT és HC” típusú demultiplexerek szerepeltek:<br />
+<br />
+A 74”C”157 mux. csakugyan a „hosszítást” részesítette előnyben, míg a „HC”
+„egységes időt” követelt meg.<br />
+Viszont itt akkora „idő hosszabbításra” mégsem volt igény, mint a 4514 CMOS
+demux. esetével. Ez persze eltérhetett volna, ha CMOS logika helyett az IC
+típusokhoz megfelelően igazodva, mondjuk egy 74”HC”266 XNOR kapu került volna
+használatra.<br />
+<br />
+<b>7; a. <u>Tesztkísérlet: 1.b</u></b>&nbsp;(ugyan az mint az 1. csak az IC típusa
+változik)<br />
+<br />
+A 74”C” mux.-al való kiválóan helyes megoldás kötése egyezik a fent leírtak
+közül az 1. módszerrel.<br />
+(A különbség, hogy a mux. A/B logikája a HT-VT oldalára való átkerülésének
+próbakísérletére, ha minden igaz nem került sor, ettől eltekintve esetleg
+működhet úgy is.)<br />
+A módszer csak a „PC” típusú demultiplexer-rel volt megfelelő!<br /><br /><div style="text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3ROVjCF8P1eTiWjyH_MTaqKHRYn-NlTh9gPxuO8K4kRHg4NkQMCGozzJXHBjskmMs8etfFl7Bg4TyIjs2QQpJJAmEHD9_Yp0TymwY9pNxLjBvbEY_leuuo8mQd2hcWXtuvqUs5e7nDKOb/s1600/01b_TTL_74C-de.EN.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="215" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3ROVjCF8P1eTiWjyH_MTaqKHRYn-NlTh9gPxuO8K4kRHg4NkQMCGozzJXHBjskmMs8etfFl7Bg4TyIjs2QQpJJAmEHD9_Yp0TymwY9pNxLjBvbEY_leuuo8mQd2hcWXtuvqUs5e7nDKOb/s400/01b_TTL_74C-de.EN.png" width="400" /></a></div>
+<br />
+<b>7; b. <u>Tesztkísérlet: 4</u></b><u>.</u> („egységes idő”)<br />
+<br />
+A 74”HC” kitűnő üzemelésű megvalósításához a mux. a HT-VT („hosszabbítás” után)
+és az MT-StD 2 logikába kötődik. Az egyik a mux. EN-ért, a másik a de. EN-ért
+felel. Az MT-StD még +1 logikába vezet, ami pedig a mux. A/B-t váltja. Tehát
+minden egy alap helyről indul, ezáltal „egységesnek” is lehetne mondani a
+reteszelési időt.<br />
+Itt is a különböző megoldások kötése egyezik a fent leírtak közül az első
+módszerrel.<br />
+(A különbség, hogy a mux. A/B logikája a HT-VT oldalára való átkerülésének
+próbakísérletére, ha minden igaz nem került sor, ettől eltekintve esetleg
+működhet úgy is.)<br />
+A módszer több típusú demux. IC-t támogat: „(LS,) PC, HC, HCT” („LS”- el volt apró
+probléma, de még az is elfogadható akár.)<br /><br /><div style="text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJnynUoJ4pZmCHxA7uWoXajWNxMXYVm6S3BbQr1czijDj3f4HJIp1iBEMzSxg65J5_s14WJ6UkkEQ2R1tHBSHAUZDw9d3vohyphenhyphentYF09hMbkrf8cYvTD2kR2H_81n2BpQ0At5YzWP3myDPRA/s1600/04_TTL_74HC-de.EN.png" imageanchor="1" style="font-size: 11pt;"><img border="0" height="200" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJnynUoJ4pZmCHxA7uWoXajWNxMXYVm6S3BbQr1czijDj3f4HJIp1iBEMzSxg65J5_s14WJ6UkkEQ2R1tHBSHAUZDw9d3vohyphenhyphentYF09hMbkrf8cYvTD2kR2H_81n2BpQ0At5YzWP3myDPRA/s400/04_TTL_74HC-de.EN.png" width="400" /></a></div>
+<br />
+<b>8. <u>Tesztkísérlet Összegzése és egyéb záró mondatok</u>:</b><br />
+<br />
+Ez csak egy tesztpélda, nem véletlenül! Gyakorlatban mindenképpen az adott TTL
+típusnak megfelelő IC használata ajánlott. A CMOS xnor (vagy xor) és 74”C”157
+mux. esetleg elképzelhető „C” típusú demultiplexerrel, (74”C”154) de annál
+lehetnek eltérések a gyakorlatban, mivel a kísérletben az nem kapott szerepet!<br />
+<br />
+<b>Tehát a project végéhez érve megvan a 8 csatornás kihívás, már csak a panel
+tervek vannak hátra ami lehet hogy fele ennyi agyat sem igényel, de ugyanakkor
+2x annyi türelmet! :-) Szóval ezzel lezárul ez a cikk (új nem lesz) maximum
+csak ez fog bővülni vagy javulni, max.: akkor lesz, ha netalántán ki nem robban
+valami ötlet (+kísérlet), vagy csak keríteni nem sikerül „újabb” alkatrészeket
+a dekódolás próbájához, ezzel még inkább tökéletesíteni az eszközt.</b></span>

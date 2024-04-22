@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AN44001A mirror motor, lézer nyomtatóból BEKÖTÉSE | Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="AN44001A mirror motor, lézer nyomtatóból BEKÖTÉSE" />
+<meta name="author" content="ZoliHV95" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Több mint 1 óra sikertelen keresés után AN44001 (A) IC pdf-je sehol nem elérhet, hiába használtam kül. böngészőket, még volt hova regisztrálni is képes voltam végső soron. A műszer maradt az utolsó remény és pár darab 1-10K ohmos ellenállás. Először a motorvezérlő főkondenzátorán szemügyrevételeztem ami 47uF 32V lehetséges a feliratokból való következtetés alapján, bár nem voltam benne biztos, de gondoltam hogy így 24V lehet, főleg hogy a nyomtatóban is egy 24V-os táp gondoskodott az áramellátásról. 1. Alap mérések: Először a minusz és a plusz került gyors megállapításra. (ez adott volt a kondinak köszönhetően) Innen már tudtam ellenállás értékeket mérni a többi csapból, legyen mire következtetni. (A lábakat balról jobbra számoztam) A minusz és az 1. láb között: 14K A minusz és a 2. láb között: nem mérhető érték (X) A minusz és a 3. láb között: 42K A plusz és az 1. láb között: 2M A plusz és a 2. láb között: nem mérhető érték (X) A  plusz és a 3. láb között: 2M A legnagyobb ellenállás értékűektől egészen a legkisebbig  sorban neki álltam végigmenni, persze 1-10K ohmos ellenállások között, a 2 fő vezetékeken. A plusz, bemeneti árammal kezdtem. (12V ról tápláltam először, nem voltam biztos a tényleges 24-ben) (Később vettem csak észre, mikor leszereltem a motort a szerkezetről, a hátulján 28000 RPM és 24V van feltüntetve) 2. Első &quot;érintgetések&quot; eredménye: Egyszer csak a 3. lábbal neki állt megmoccanni a motor, (talán plusz, de lehet minuszról) a rajz se biztos hogy helyes. Na eddig oké eljutottam, de ez még kevés, mire majdnem mindent érintetem már mindennel (persze csak ellenálláson keresztül) kezdtem rájönni a panelen látható forrcsúcsokra. Amelyik lábbal moccanás történt, megfogtam, majd ellenálláson keresztül végigcikáztam pár forrcsúcson, az egyiken hirtelen bepörgött, de elég siralmas módon, gyorsan le is vettem a csapról, majd egy alapos méréssel visszakövettem a 3. lábat, egy 3K ohmos SMD ellenállás volt csak a kimenet és a motor IC között, na meg egy SMD kondi ment a minuszba (a 3K ohm előtt). Ebből nem sok mindenre jutottam max annyira, hogy lehet elhagyhatnám az ellenállást, ha már ott az a 3K gyárilag, minden esetre 1K-t azért hagytam elé, úgy folytattam tovább a munkát. 3. Az IC fontos (9.) lába, amit nem vezet sehova: A motor IC-jéhez közel volt még kimenet amit nem próbáltam (a 3. lábbal) érinteni. Sikerült az egyik forrcsúcson egy fasza kis működést elérnem, viszont ezt lassúnak és zötyögősnek tartottam, műszerrel alaposan rámértem, ez csak és kizárólag az IC 9. lábába vezet, azon kívül sehová. (A firkálmányok senkit se tévesszenek meg, az gyári, és nem releváns a bekötésre nézve, magyarán azt nem én csináltam :) (a ráírt számokat sem, csak az IC-n a piros lábat, és a +24V feliratot) Innét egy darab vezetéket forrasztottam ki és kerestem egy 470K ohmos potmétert, hátha állítgatással elérek valamit, talán nagyobb ellenállás érték kell neki, talán kisebb, majd meglátjuk! :D Hát kellet is, mert egyből tudtam vele szabályozni, igaz alacsonyabb értéknél már zötyög, kicsit feljebb állítva szépen megy, de lassú, túlállítva kis határnál lassabbodás után leáll. A tökéletes érték: ( 24V-nál) 18K ohm kell, hogy elérje a max. teljes fordulatot. 20K ohmon normál fordulattal kicsit visszavesz. 12V-ról is elérhető a max. furdulat egy 10K ohmmal, persze ez inkább csak olyan 24V-os normál fordulattal egyenlő, de “ütőképes”, használható. Egy valami viszont nem tiszta, a motor bizonyos helyzetében nem képes elindulni, csak rásegítéssel, a 3. lábbal, amit pillanatra a negatívval rövidre kell zárni, vagy körömmel megpöccinteni a forgó részt. :) Több csappal is próbálgattam az indításra a megoldást, sajnos nem jöttem rá. Általában simán a tápellátást rákapcsolgatva hálózatról indul, (még 12V ról is) magától, viszont ha külön akasztom a vezetékre a bemeneti áramot, akkor nemigen akar. Még akkor sem, ha külön adom össze a 3. lábat és az IC felfedezett 9. lábát." />
+<meta property="og:description" content="Több mint 1 óra sikertelen keresés után AN44001 (A) IC pdf-je sehol nem elérhet, hiába használtam kül. böngészőket, még volt hova regisztrálni is képes voltam végső soron. A műszer maradt az utolsó remény és pár darab 1-10K ohmos ellenállás. Először a motorvezérlő főkondenzátorán szemügyrevételeztem ami 47uF 32V lehetséges a feliratokból való következtetés alapján, bár nem voltam benne biztos, de gondoltam hogy így 24V lehet, főleg hogy a nyomtatóban is egy 24V-os táp gondoskodott az áramellátásról. 1. Alap mérések: Először a minusz és a plusz került gyors megállapításra. (ez adott volt a kondinak köszönhetően) Innen már tudtam ellenállás értékeket mérni a többi csapból, legyen mire következtetni. (A lábakat balról jobbra számoztam) A minusz és az 1. láb között: 14K A minusz és a 2. láb között: nem mérhető érték (X) A minusz és a 3. láb között: 42K A plusz és az 1. láb között: 2M A plusz és a 2. láb között: nem mérhető érték (X) A  plusz és a 3. láb között: 2M A legnagyobb ellenállás értékűektől egészen a legkisebbig  sorban neki álltam végigmenni, persze 1-10K ohmos ellenállások között, a 2 fő vezetékeken. A plusz, bemeneti árammal kezdtem. (12V ról tápláltam először, nem voltam biztos a tényleges 24-ben) (Később vettem csak észre, mikor leszereltem a motort a szerkezetről, a hátulján 28000 RPM és 24V van feltüntetve) 2. Első &quot;érintgetések&quot; eredménye: Egyszer csak a 3. lábbal neki állt megmoccanni a motor, (talán plusz, de lehet minuszról) a rajz se biztos hogy helyes. Na eddig oké eljutottam, de ez még kevés, mire majdnem mindent érintetem már mindennel (persze csak ellenálláson keresztül) kezdtem rájönni a panelen látható forrcsúcsokra. Amelyik lábbal moccanás történt, megfogtam, majd ellenálláson keresztül végigcikáztam pár forrcsúcson, az egyiken hirtelen bepörgött, de elég siralmas módon, gyorsan le is vettem a csapról, majd egy alapos méréssel visszakövettem a 3. lábat, egy 3K ohmos SMD ellenállás volt csak a kimenet és a motor IC között, na meg egy SMD kondi ment a minuszba (a 3K ohm előtt). Ebből nem sok mindenre jutottam max annyira, hogy lehet elhagyhatnám az ellenállást, ha már ott az a 3K gyárilag, minden esetre 1K-t azért hagytam elé, úgy folytattam tovább a munkát. 3. Az IC fontos (9.) lába, amit nem vezet sehova: A motor IC-jéhez közel volt még kimenet amit nem próbáltam (a 3. lábbal) érinteni. Sikerült az egyik forrcsúcson egy fasza kis működést elérnem, viszont ezt lassúnak és zötyögősnek tartottam, műszerrel alaposan rámértem, ez csak és kizárólag az IC 9. lábába vezet, azon kívül sehová. (A firkálmányok senkit se tévesszenek meg, az gyári, és nem releváns a bekötésre nézve, magyarán azt nem én csináltam :) (a ráírt számokat sem, csak az IC-n a piros lábat, és a +24V feliratot) Innét egy darab vezetéket forrasztottam ki és kerestem egy 470K ohmos potmétert, hátha állítgatással elérek valamit, talán nagyobb ellenállás érték kell neki, talán kisebb, majd meglátjuk! :D Hát kellet is, mert egyből tudtam vele szabályozni, igaz alacsonyabb értéknél már zötyög, kicsit feljebb állítva szépen megy, de lassú, túlállítva kis határnál lassabbodás után leáll. A tökéletes érték: ( 24V-nál) 18K ohm kell, hogy elérje a max. teljes fordulatot. 20K ohmon normál fordulattal kicsit visszavesz. 12V-ról is elérhető a max. furdulat egy 10K ohmmal, persze ez inkább csak olyan 24V-os normál fordulattal egyenlő, de “ütőképes”, használható. Egy valami viszont nem tiszta, a motor bizonyos helyzetében nem képes elindulni, csak rásegítéssel, a 3. lábbal, amit pillanatra a negatívval rövidre kell zárni, vagy körömmel megpöccinteni a forgó részt. :) Több csappal is próbálgattam az indításra a megoldást, sajnos nem jöttem rá. Általában simán a tápellátást rákapcsolgatva hálózatról indul, (még 12V ról is) magától, viszont ha külön akasztom a vezetékre a bemeneti áramot, akkor nemigen akar. Még akkor sem, ha külön adom össze a 3. lábat és az IC felfedezett 9. lábát." />
+<link rel="canonical" href="http://localhost:4000/2019-08-20-an44001a-mirror-motor-lezer-nyomtatobol/" />
+<meta property="og:url" content="http://localhost:4000/2019-08-20-an44001a-mirror-motor-lezer-nyomtatobol/" />
+<meta property="og:site_name" content="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-20T11:18:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AN44001A mirror motor, lézer nyomtatóból BEKÖTÉSE" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"ZoliHV95"},"dateModified":"2019-08-20T11:18:00+02:00","datePublished":"2019-08-20T11:18:00+02:00","description":"Több mint 1 óra sikertelen keresés után AN44001 (A) IC pdf-je sehol nem elérhet, hiába használtam kül. böngészőket, még volt hova regisztrálni is képes voltam végső soron. A műszer maradt az utolsó remény és pár darab 1-10K ohmos ellenállás. Először a motorvezérlő főkondenzátorán szemügyrevételeztem ami 47uF 32V lehetséges a feliratokból való következtetés alapján, bár nem voltam benne biztos, de gondoltam hogy így 24V lehet, főleg hogy a nyomtatóban is egy 24V-os táp gondoskodott az áramellátásról. 1. Alap mérések: Először a minusz és a plusz került gyors megállapításra. (ez adott volt a kondinak köszönhetően) Innen már tudtam ellenállás értékeket mérni a többi csapból, legyen mire következtetni. (A lábakat balról jobbra számoztam) A minusz és az 1. láb között: 14K A minusz és a 2. láb között: nem mérhető érték (X) A minusz és a 3. láb között: 42K A plusz és az 1. láb között: 2M A plusz és a 2. láb között: nem mérhető érték (X) A  plusz és a 3. láb között: 2M A legnagyobb ellenállás értékűektől egészen a legkisebbig  sorban neki álltam végigmenni, persze 1-10K ohmos ellenállások között, a 2 fő vezetékeken. A plusz, bemeneti árammal kezdtem. (12V ról tápláltam először, nem voltam biztos a tényleges 24-ben) (Később vettem csak észre, mikor leszereltem a motort a szerkezetről, a hátulján 28000 RPM és 24V van feltüntetve) 2. Első &quot;érintgetések&quot; eredménye: Egyszer csak a 3. lábbal neki állt megmoccanni a motor, (talán plusz, de lehet minuszról) a rajz se biztos hogy helyes. Na eddig oké eljutottam, de ez még kevés, mire majdnem mindent érintetem már mindennel (persze csak ellenálláson keresztül) kezdtem rájönni a panelen látható forrcsúcsokra. Amelyik lábbal moccanás történt, megfogtam, majd ellenálláson keresztül végigcikáztam pár forrcsúcson, az egyiken hirtelen bepörgött, de elég siralmas módon, gyorsan le is vettem a csapról, majd egy alapos méréssel visszakövettem a 3. lábat, egy 3K ohmos SMD ellenállás volt csak a kimenet és a motor IC között, na meg egy SMD kondi ment a minuszba (a 3K ohm előtt). Ebből nem sok mindenre jutottam max annyira, hogy lehet elhagyhatnám az ellenállást, ha már ott az a 3K gyárilag, minden esetre 1K-t azért hagytam elé, úgy folytattam tovább a munkát. 3. Az IC fontos (9.) lába, amit nem vezet sehova: A motor IC-jéhez közel volt még kimenet amit nem próbáltam (a 3. lábbal) érinteni. Sikerült az egyik forrcsúcson egy fasza kis működést elérnem, viszont ezt lassúnak és zötyögősnek tartottam, műszerrel alaposan rámértem, ez csak és kizárólag az IC 9. lábába vezet, azon kívül sehová. (A firkálmányok senkit se tévesszenek meg, az gyári, és nem releváns a bekötésre nézve, magyarán azt nem én csináltam :) (a ráírt számokat sem, csak az IC-n a piros lábat, és a +24V feliratot) Innét egy darab vezetéket forrasztottam ki és kerestem egy 470K ohmos potmétert, hátha állítgatással elérek valamit, talán nagyobb ellenállás érték kell neki, talán kisebb, majd meglátjuk! :D Hát kellet is, mert egyből tudtam vele szabályozni, igaz alacsonyabb értéknél már zötyög, kicsit feljebb állítva szépen megy, de lassú, túlállítva kis határnál lassabbodás után leáll. A tökéletes érték: ( 24V-nál) 18K ohm kell, hogy elérje a max. teljes fordulatot. 20K ohmon normál fordulattal kicsit visszavesz. 12V-ról is elérhető a max. furdulat egy 10K ohmmal, persze ez inkább csak olyan 24V-os normál fordulattal egyenlő, de “ütőképes”, használható. Egy valami viszont nem tiszta, a motor bizonyos helyzetében nem képes elindulni, csak rásegítéssel, a 3. lábbal, amit pillanatra a negatívval rövidre kell zárni, vagy körömmel megpöccinteni a forgó részt. :) Több csappal is próbálgattam az indításra a megoldást, sajnos nem jöttem rá. Általában simán a tápellátást rákapcsolgatva hálózatról indul, (még 12V ról is) magától, viszont ha külön akasztom a vezetékre a bemeneti áramot, akkor nemigen akar. Még akkor sem, ha külön adom össze a 3. lábat és az IC felfedezett 9. lábát.","headline":"AN44001A mirror motor, lézer nyomtatóból BEKÖTÉSE","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-08-20-an44001a-mirror-motor-lezer-nyomtatobol/"},"url":"http://localhost:4000/2019-08-20-an44001a-mirror-motor-lezer-nyomtatobol/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AN44001A mirror motor, lézer nyomtatóból BEKÖTÉSE</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-08-20T11:18:00+02:00" itemprop="datePublished">Aug 20, 2019
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">ZoliHV95</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+Több mint 1 óra sikertelen keresés után AN44001 (A) IC pdf-je sehol nem elérhet, hiába használtam kül. böngészőket, még volt hova regisztrálni is képes voltam végső soron.<br />
+<br />
+A műszer maradt az utolsó remény és pár darab 1-10K ohmos ellenállás.<br />
+Először a motorvezérlő főkondenzátorán szemügyrevételeztem ami 47uF 32V lehetséges a feliratokból való következtetés alapján, bár nem voltam benne biztos, de gondoltam hogy így 24V lehet, főleg hogy a nyomtatóban is egy 24V-os táp gondoskodott az áramellátásról.<br />
+<br />
+<b>1. <u>Alap mérések</u>:</b><br />
+Először a minusz és a plusz került gyors megállapításra. (ez adott volt a kondinak köszönhetően)<br />
+Innen már tudtam ellenállás értékeket mérni a többi csapból, legyen mire következtetni.<br />
+<br />
+(A lábakat balról jobbra számoztam)<br />
+<br />
+A minusz és az 1. láb között: 14K<br />
+A minusz és a 2. láb között: nem mérhető érték (X)<br />
+A minusz&nbsp;és a 3. láb között: 42K<br />
+<br />
+A plusz és az 1. láb között: 2M<br />
+A plusz és a 2. láb között: nem mérhető érték (X)<br />
+A&nbsp; plusz és a 3. láb között: 2M<br />
+<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkNqM-OqHgRE74lzQECPlVcQQtD8Ym3S8RFv33E9dGTwMDHG9mO63yqKW6HygCWLs_2z3-iCQZdAUuPOtaViUxKvh9NihMXj_7lMPwkCEeXA931PnQWrnQH1o_5gLgHlYPTDKDqeAEKVh/s1600/20190818_164021.jpg" imageanchor="1"><img alt="AN44001A mirror motor" border="0" height="360" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkNqM-OqHgRE74lzQECPlVcQQtD8Ym3S8RFv33E9dGTwMDHG9mO63yqKW6HygCWLs_2z3-iCQZdAUuPOtaViUxKvh9NihMXj_7lMPwkCEeXA931PnQWrnQH1o_5gLgHlYPTDKDqeAEKVh/s640/20190818_164021.jpg" title="AN44001A mirror motor" width="640" /></a><br />
+<br />
+A legnagyobb ellenállás értékűektől egészen a legkisebbig&nbsp; sorban neki álltam végigmenni, persze 1-10K ohmos ellenállások között, a 2 fő vezetékeken. A plusz, bemeneti árammal kezdtem. (12V ról tápláltam először, nem voltam biztos a tényleges 24-ben)<br />
+(Később vettem csak észre, mikor leszereltem a motort a szerkezetről, a hátulján 28000 RPM és 24V van feltüntetve)<br />
+<br />
+<b>2. <u>Első "érintgetések" eredménye</u>:</b><br />
+<br />
+Egyszer csak a 3. lábbal neki állt megmoccanni a motor, (talán plusz, de lehet minuszról) a rajz se biztos hogy helyes.<br />
+<br />
+Na eddig oké eljutottam, de ez még kevés, mire majdnem mindent érintetem már mindennel (persze csak ellenálláson keresztül) kezdtem rájönni a panelen látható forrcsúcsokra.<br />
+<br />
+Amelyik lábbal moccanás történt, megfogtam, majd ellenálláson keresztül végigcikáztam pár forrcsúcson, az egyiken hirtelen bepörgött, de elég siralmas módon, gyorsan le is vettem a csapról, majd egy alapos méréssel visszakövettem a 3. lábat, egy 3K ohmos SMD ellenállás volt csak a kimenet és a motor IC között, na meg egy SMD kondi ment a minuszba (a 3K ohm előtt).<br />
+Ebből nem sok mindenre jutottam max annyira, hogy lehet elhagyhatnám az ellenállást, ha már ott az a 3K gyárilag, minden esetre 1K-t azért hagytam elé, úgy folytattam tovább a munkát.<br />
+<br />
+<b>3. <u>Az IC fontos (9.) lába, amit nem vezet sehova</u>:</b><br />
+<br />
+A motor IC-jéhez közel volt még kimenet amit nem próbáltam (a 3. lábbal) érinteni.<br />
+Sikerült az egyik forrcsúcson egy fasza kis működést elérnem, viszont ezt lassúnak és zötyögősnek tartottam, műszerrel alaposan rámértem, ez csak és kizárólag az IC 9. lábába vezet, azon kívül sehová.<br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgs-Qmmoo1k6lWIACj2TggDlXVdYogbBdQeTaHA4GwlT4fsZdnXawpaBQM-NKIrJkOGUno_iM_YiMxG6FzJ8pWgaGKBcmda3I3dNiprprPhYgbYD5LBuQ5DHbfl1iI_iv3O_KCr6KlTdOey/s1600/20190818_163437.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="AN44001A laser printer" border="0" height="360" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgs-Qmmoo1k6lWIACj2TggDlXVdYogbBdQeTaHA4GwlT4fsZdnXawpaBQM-NKIrJkOGUno_iM_YiMxG6FzJ8pWgaGKBcmda3I3dNiprprPhYgbYD5LBuQ5DHbfl1iI_iv3O_KCr6KlTdOey/s640/20190818_163437.jpg" title="AN44001A laser printer" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">(A firkálmányok senkit se tévesszenek meg, az gyári, és nem releváns a bekötésre nézve, magyarán azt nem én csináltam :) (a ráírt számokat sem, csak az IC-n a piros lábat, és a +24V feliratot)</td></tr>
+</tbody></table>
+Innét egy darab vezetéket forrasztottam ki és kerestem egy 470K ohmos potmétert, hátha állítgatással elérek valamit, talán nagyobb ellenállás érték kell neki, talán kisebb, majd meglátjuk! :D<br />
+Hát kellet is, mert egyből tudtam vele szabályozni, igaz alacsonyabb értéknél már zötyög, kicsit feljebb állítva szépen megy, de lassú, túlállítva kis határnál lassabbodás után leáll.<br />
+<br />
+A tökéletes érték: ( 24V-nál) <b>18K</b> ohm kell, hogy elérje a max. teljes fordulatot. 20K ohmon normál fordulattal kicsit visszavesz.<br />
+<br />
+12V-ról is elérhető a max. furdulat egy 10K ohmmal, persze ez inkább csak olyan 24V-os normál fordulattal egyenlő, de "ütőképes", használható.<br />
+<br />
+Egy valami viszont nem tiszta, a motor bizonyos helyzetében nem képes elindulni, csak rásegítéssel, a 3. lábbal, amit pillanatra a negatívval rövidre kell zárni, vagy körömmel megpöccinteni a forgó részt. :)<br />
+Több csappal is próbálgattam az indításra a megoldást, sajnos nem jöttem rá.<br />
+<br />
+Általában simán a tápellátást rákapcsolgatva hálózatról indul, (még 12V ról is) magától, viszont ha külön akasztom a vezetékre a bemeneti áramot, akkor nemigen akar. Még akkor sem, ha külön adom össze a 3. lábat és az IC felfedezett 9. lábát.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/0kA9Mvx23aQ/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/0kA9Mvx23aQ?feature=player_embedded" width="320"></iframe></div>
+
+  </div><a class="u-url" href="/2019-08-20-an44001a-mirror-motor-lezer-nyomtatobol/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">ZoliHV95</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

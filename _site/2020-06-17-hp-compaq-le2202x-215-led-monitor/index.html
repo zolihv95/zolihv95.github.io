@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HP Compaq LE2202x 21,5” LED monitor javítása | Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="HP Compaq LE2202x 21,5” LED monitor javítása" />
+<meta name="author" content="ZoliHV95" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A probléma a monitoron megjelenő kép egyik felének szétesésével kezdődött, ez ki-be kapcsolás után helyre állt, majd egy idő útán ismét elkezdte, egyre bajosabban. Szétszedés után a tápegységen található kondenzátorok mindegyike hibás volt. (legalábbis mérések alapján, feldagadva egyik sem)&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Kép a tápegységről, alap (hibás) állapotában. &lt;/tbody&gt;&lt;/table&gt; Eleve keserű szájízzel álltam a dologhoz, mivel ez már nem az 1. HP eszköz, aminek a javítása sikertelennek bizonyult. Az összes kondit, a rezgőkörtől, a hálózatig mindet cseréltem, és a pofátlanul kisméretű borda helyett valami normálisabb került rá a FET-re. Persze a dolgok kissé sem voltak egyszerűek, a gyártó szintén kedves volt: az elhelyezni kívánt hűtőfelülettel közvetlen volt a külső talprögzítő egyik csavar helyének a csöcse. Ezt kifaragással sikerült megoldani, úgy, hogy még pont használható is legyen rögzítésre. (hátha valaha még szükség lesz rá, bár erre kb. annyi az esély, mint egy ilyen HP monitor élettartamára) :-) Pont akkora borda került rá, amekkora felér a ’kizsonglőrködött’ lemez tetejéig, ezáltal ’önhűtést’ végezhet az eszköz. Viszont a tápegység hálózati negatív része nem közös a GND-vel, ezért mindenképpen el kellett választani egymástól a kettőt (legalább a tetején lévő érintkezést megakadályozni).&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; A hűtőborda helyének kifaragott része és a földtől való elválasztása hővezető lappal. &lt;/tbody&gt;&lt;/table&gt; Folytatólagosan (az itt található egyik cikkből okulva: Philips TV) a más kényesebb félvezető eszközök is kaptak egy pirinyó hűtőfelületet. Végezetül a megjelenő kép vezérlő áramáért (5V) felelős tápon található SR506 schottky diódák cserélve lettek SB560-ra, a gyanúsan félhibás: 100 körüli értékek miatt. (A 2 dióda között adatlap szerint egy nagyon kicsi feszültség esés beli különbség található, de ez a kimeneti feszt nem befolyásolja terheléskor sem, legalábbis mérések alapján.) Az összes nagyteljesítményű dióda rézcsővel és kerámiapaddal biztosítva lett. Próba: Üzembe helyezéskor egy pillanatra megjelenő kép fogadott, majd a power LED kék villogása is egyre inkább kezdett megszűnni. (mérés alapján a tápfesz (5V) ilyenkor visszazuhant 2-3V-ra vagy ezalá) Továbbá gyanúsak kezdtek lennil a tápon található biztonági: opto, xx431x, stb. Az optocsatolót mérve jónak mutatkozott, a 431-es biztonsági IC szintén. Minden esetre egy más típusú 431-essel kapott próbát, hátha azzal beindul. Próba képpen a megjelenő kép az előző teszthez képest ennyit változott, hogy több ideig maradt fenn, megszűnésekor a power LED világítása továbbá is fennált. A biztonsági elemek körül lévő ellenállások 1%-os eltérése kezdett nagy gyanút kelteni a probléma okára, mivel az oda behelyezett „új” kondenzátotok értékei eltérnek a már „hozzá öregedett” ellenállás értékeitől, emiatt nem képes fenntartani a megfelelő biztonsági áramot, ahhoz, hogy a táp folyamat működjön. Mérések alapján: 10K ohm helyett 9K tündöklött, volt egy 10,50k ohm-os ellenállás, ami helyett 10,40K-t mértem, ez még talán nem túl nagy probléma, de hogy ezek helyette találjak egy normálisat majdnem hogy fél napig kerestem elő mindet, de ilyen 10,50-est akkor sem találtam volna, ha hittérítő szektásnak állok, :-) tehát maradt egy vele sorosba kötött + pár ohm-os érték. Biztos ami biztos már eleve az összes ellenállást megmértem, a LED vezérlő egység részénél egészen kiváló eredmények mutatkoztak. A FET gate meghajtásáért felelős 1%-os elenállás szintén gagyi volt, na és ott akörül egy huncut 82K 5%-os nagyteljesítményű is cserére került. (az eddigi hibás 80k ohm helyett) Ami csakugyan kerámiapaddal és rézcsővel került a helyére.&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Az alap, hibásnak vélt ellenállások a 431 és az opto körül (csere előtt)&nbsp; &lt;/tbody&gt;&lt;/table&gt; Az eddigi kis méretű (0,2W körüli) ellenállásokat normál méretű, (0,5-0,6W) nagyobbak váltották fel. Beüzemeléskor a monitoron a kép megjelent, de a háttérvilágítás nem akarta az igazak szavát. Méréseket követve a kép megjelenísésért felelős feszültség (5V) stabil volt, a háttérvilágításé viszont ingadozott. (20-15V). A panel vezetősávjait átvágva külső tápról hajtva egyből beindult, úgy hogy a LED meghajtó logikai bemenetei 3,3V-ról “szimulálva” lettek. Akkor már csak pár dolog lehetett gyanúsan problémás: valami zavarja a frekvenciát. (Hasonlóan mint az itt található Philis TV javítása cikkben.) A 431 mellett lévő noname feliratú 10nF-os kerámia kondenzátort felváltotta egy 103 1KV-os, és a LED meghajtásáért felelős feszültség szűrésénél a 63V 100nF-os kondit pedig egy 100V-os. A majdnem a végső próba során a kijelző teljes működést jelentett. ….egy darabig, :-) 10 perc után ismét elkezdett elmenni a LED, vagyis az áram ingadozni. Már más nem volt, ötletként, mint a gyárilagos hálózati kondi visszacserélése a kiváltandó 68uF 450V-os helyett, amit csak 85°C tűrési felirattal láttak el. Ebből ítélve nem lehetett valami komoly darab, de igazam is volt, a belső ellenállása jóval eltérő volt a gyári 105°C tűrési felirattal ellátott konditól. Tehát mivel jobbat nem találtam ment vissza a 68uF helyeti 67uF-os.Az utolsó próbát követve sikeres eredmény volt, nem ment el a háttérvilágítás hosszú üzem után sem. Pont összeállítás előtt “nagy sikerrel” levertem a villanyórát, a táp pozitív része kiért a testre, majd durr! Szerencsére csak a dióda híd puffant el, na meg az SCK a biztosíték és a zavarszűrő főtt meg, gyors mérések és alkatrész csere után az eredmény úgyszint kiváló volt, legalábbis eddig :-) bár hosszú élet tartamra igen kicsi az esély. (főleg ami a HP-s eszközöket mindig is illette, mármint tapasztalataim szerint)&lt;/span&gt; A tápegység alja teljes javítás után. Tápegység javított állapotában, a képen még a problémás 85°C-os hálózati kondival. (A háttérvilágítást vezérlő FET végezetül nem kapott hőtűbordát, a darab ráforrasztott réz lemezen kívül, mivel semmi melegedést nem lehetett tapasztalni a próbák során, így nem éreztem szükségesnek bármit is rátenni.) A monitor félig összeszerelten (&quot;önhűtéses&quot; megoldás) Ezt most így direkt a cikk végére hagytam, mert sajnos szervíz dokumentációt sehol nem tudtam fellelni, viszont a LED-es háttérvilágítás kivezérlő modul IC-jére (INL859RN) rákeresvén egy külföldi fórum nyújtott hatalmas segítséget.  -&gt;&gt;&gt; Link Az említett kapcsolás (megjelenítve a HP monitoron)" />
+<meta property="og:description" content="A probléma a monitoron megjelenő kép egyik felének szétesésével kezdődött, ez ki-be kapcsolás után helyre állt, majd egy idő útán ismét elkezdte, egyre bajosabban. Szétszedés után a tápegységen található kondenzátorok mindegyike hibás volt. (legalábbis mérések alapján, feldagadva egyik sem)&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Kép a tápegységről, alap (hibás) állapotában. &lt;/tbody&gt;&lt;/table&gt; Eleve keserű szájízzel álltam a dologhoz, mivel ez már nem az 1. HP eszköz, aminek a javítása sikertelennek bizonyult. Az összes kondit, a rezgőkörtől, a hálózatig mindet cseréltem, és a pofátlanul kisméretű borda helyett valami normálisabb került rá a FET-re. Persze a dolgok kissé sem voltak egyszerűek, a gyártó szintén kedves volt: az elhelyezni kívánt hűtőfelülettel közvetlen volt a külső talprögzítő egyik csavar helyének a csöcse. Ezt kifaragással sikerült megoldani, úgy, hogy még pont használható is legyen rögzítésre. (hátha valaha még szükség lesz rá, bár erre kb. annyi az esély, mint egy ilyen HP monitor élettartamára) :-) Pont akkora borda került rá, amekkora felér a ’kizsonglőrködött’ lemez tetejéig, ezáltal ’önhűtést’ végezhet az eszköz. Viszont a tápegység hálózati negatív része nem közös a GND-vel, ezért mindenképpen el kellett választani egymástól a kettőt (legalább a tetején lévő érintkezést megakadályozni).&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; A hűtőborda helyének kifaragott része és a földtől való elválasztása hővezető lappal. &lt;/tbody&gt;&lt;/table&gt; Folytatólagosan (az itt található egyik cikkből okulva: Philips TV) a más kényesebb félvezető eszközök is kaptak egy pirinyó hűtőfelületet. Végezetül a megjelenő kép vezérlő áramáért (5V) felelős tápon található SR506 schottky diódák cserélve lettek SB560-ra, a gyanúsan félhibás: 100 körüli értékek miatt. (A 2 dióda között adatlap szerint egy nagyon kicsi feszültség esés beli különbség található, de ez a kimeneti feszt nem befolyásolja terheléskor sem, legalábbis mérések alapján.) Az összes nagyteljesítményű dióda rézcsővel és kerámiapaddal biztosítva lett. Próba: Üzembe helyezéskor egy pillanatra megjelenő kép fogadott, majd a power LED kék villogása is egyre inkább kezdett megszűnni. (mérés alapján a tápfesz (5V) ilyenkor visszazuhant 2-3V-ra vagy ezalá) Továbbá gyanúsak kezdtek lennil a tápon található biztonági: opto, xx431x, stb. Az optocsatolót mérve jónak mutatkozott, a 431-es biztonsági IC szintén. Minden esetre egy más típusú 431-essel kapott próbát, hátha azzal beindul. Próba képpen a megjelenő kép az előző teszthez képest ennyit változott, hogy több ideig maradt fenn, megszűnésekor a power LED világítása továbbá is fennált. A biztonsági elemek körül lévő ellenállások 1%-os eltérése kezdett nagy gyanút kelteni a probléma okára, mivel az oda behelyezett „új” kondenzátotok értékei eltérnek a már „hozzá öregedett” ellenállás értékeitől, emiatt nem képes fenntartani a megfelelő biztonsági áramot, ahhoz, hogy a táp folyamat működjön. Mérések alapján: 10K ohm helyett 9K tündöklött, volt egy 10,50k ohm-os ellenállás, ami helyett 10,40K-t mértem, ez még talán nem túl nagy probléma, de hogy ezek helyette találjak egy normálisat majdnem hogy fél napig kerestem elő mindet, de ilyen 10,50-est akkor sem találtam volna, ha hittérítő szektásnak állok, :-) tehát maradt egy vele sorosba kötött + pár ohm-os érték. Biztos ami biztos már eleve az összes ellenállást megmértem, a LED vezérlő egység részénél egészen kiváló eredmények mutatkoztak. A FET gate meghajtásáért felelős 1%-os elenállás szintén gagyi volt, na és ott akörül egy huncut 82K 5%-os nagyteljesítményű is cserére került. (az eddigi hibás 80k ohm helyett) Ami csakugyan kerámiapaddal és rézcsővel került a helyére.&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Az alap, hibásnak vélt ellenállások a 431 és az opto körül (csere előtt)&nbsp; &lt;/tbody&gt;&lt;/table&gt; Az eddigi kis méretű (0,2W körüli) ellenállásokat normál méretű, (0,5-0,6W) nagyobbak váltották fel. Beüzemeléskor a monitoron a kép megjelent, de a háttérvilágítás nem akarta az igazak szavát. Méréseket követve a kép megjelenísésért felelős feszültség (5V) stabil volt, a háttérvilágításé viszont ingadozott. (20-15V). A panel vezetősávjait átvágva külső tápról hajtva egyből beindult, úgy hogy a LED meghajtó logikai bemenetei 3,3V-ról “szimulálva” lettek. Akkor már csak pár dolog lehetett gyanúsan problémás: valami zavarja a frekvenciát. (Hasonlóan mint az itt található Philis TV javítása cikkben.) A 431 mellett lévő noname feliratú 10nF-os kerámia kondenzátort felváltotta egy 103 1KV-os, és a LED meghajtásáért felelős feszültség szűrésénél a 63V 100nF-os kondit pedig egy 100V-os. A majdnem a végső próba során a kijelző teljes működést jelentett. ….egy darabig, :-) 10 perc után ismét elkezdett elmenni a LED, vagyis az áram ingadozni. Már más nem volt, ötletként, mint a gyárilagos hálózati kondi visszacserélése a kiváltandó 68uF 450V-os helyett, amit csak 85°C tűrési felirattal láttak el. Ebből ítélve nem lehetett valami komoly darab, de igazam is volt, a belső ellenállása jóval eltérő volt a gyári 105°C tűrési felirattal ellátott konditól. Tehát mivel jobbat nem találtam ment vissza a 68uF helyeti 67uF-os.Az utolsó próbát követve sikeres eredmény volt, nem ment el a háttérvilágítás hosszú üzem után sem. Pont összeállítás előtt “nagy sikerrel” levertem a villanyórát, a táp pozitív része kiért a testre, majd durr! Szerencsére csak a dióda híd puffant el, na meg az SCK a biztosíték és a zavarszűrő főtt meg, gyors mérések és alkatrész csere után az eredmény úgyszint kiváló volt, legalábbis eddig :-) bár hosszú élet tartamra igen kicsi az esély. (főleg ami a HP-s eszközöket mindig is illette, mármint tapasztalataim szerint)&lt;/span&gt; A tápegység alja teljes javítás után. Tápegység javított állapotában, a képen még a problémás 85°C-os hálózati kondival. (A háttérvilágítást vezérlő FET végezetül nem kapott hőtűbordát, a darab ráforrasztott réz lemezen kívül, mivel semmi melegedést nem lehetett tapasztalni a próbák során, így nem éreztem szükségesnek bármit is rátenni.) A monitor félig összeszerelten (&quot;önhűtéses&quot; megoldás) Ezt most így direkt a cikk végére hagytam, mert sajnos szervíz dokumentációt sehol nem tudtam fellelni, viszont a LED-es háttérvilágítás kivezérlő modul IC-jére (INL859RN) rákeresvén egy külföldi fórum nyújtott hatalmas segítséget.  -&gt;&gt;&gt; Link Az említett kapcsolás (megjelenítve a HP monitoron)" />
+<link rel="canonical" href="http://localhost:4000/2020-06-17-hp-compaq-le2202x-215-led-monitor/" />
+<meta property="og:url" content="http://localhost:4000/2020-06-17-hp-compaq-le2202x-215-led-monitor/" />
+<meta property="og:site_name" content="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-17T13:26:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HP Compaq LE2202x 21,5” LED monitor javítása" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"ZoliHV95"},"dateModified":"2020-06-17T13:26:00+02:00","datePublished":"2020-06-17T13:26:00+02:00","description":"A probléma a monitoron megjelenő kép egyik felének szétesésével kezdődött, ez ki-be kapcsolás után helyre állt, majd egy idő útán ismét elkezdte, egyre bajosabban. Szétszedés után a tápegységen található kondenzátorok mindegyike hibás volt. (legalábbis mérések alapján, feldagadva egyik sem)&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Kép a tápegységről, alap (hibás) állapotában. &lt;/tbody&gt;&lt;/table&gt; Eleve keserű szájízzel álltam a dologhoz, mivel ez már nem az 1. HP eszköz, aminek a javítása sikertelennek bizonyult. Az összes kondit, a rezgőkörtől, a hálózatig mindet cseréltem, és a pofátlanul kisméretű borda helyett valami normálisabb került rá a FET-re. Persze a dolgok kissé sem voltak egyszerűek, a gyártó szintén kedves volt: az elhelyezni kívánt hűtőfelülettel közvetlen volt a külső talprögzítő egyik csavar helyének a csöcse. Ezt kifaragással sikerült megoldani, úgy, hogy még pont használható is legyen rögzítésre. (hátha valaha még szükség lesz rá, bár erre kb. annyi az esély, mint egy ilyen HP monitor élettartamára) :-) Pont akkora borda került rá, amekkora felér a ’kizsonglőrködött’ lemez tetejéig, ezáltal ’önhűtést’ végezhet az eszköz. Viszont a tápegység hálózati negatív része nem közös a GND-vel, ezért mindenképpen el kellett választani egymástól a kettőt (legalább a tetején lévő érintkezést megakadályozni).&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; A hűtőborda helyének kifaragott része és a földtől való elválasztása hővezető lappal. &lt;/tbody&gt;&lt;/table&gt; Folytatólagosan (az itt található egyik cikkből okulva: Philips TV) a más kényesebb félvezető eszközök is kaptak egy pirinyó hűtőfelületet. Végezetül a megjelenő kép vezérlő áramáért (5V) felelős tápon található SR506 schottky diódák cserélve lettek SB560-ra, a gyanúsan félhibás: 100 körüli értékek miatt. (A 2 dióda között adatlap szerint egy nagyon kicsi feszültség esés beli különbség található, de ez a kimeneti feszt nem befolyásolja terheléskor sem, legalábbis mérések alapján.) Az összes nagyteljesítményű dióda rézcsővel és kerámiapaddal biztosítva lett. Próba: Üzembe helyezéskor egy pillanatra megjelenő kép fogadott, majd a power LED kék villogása is egyre inkább kezdett megszűnni. (mérés alapján a tápfesz (5V) ilyenkor visszazuhant 2-3V-ra vagy ezalá) Továbbá gyanúsak kezdtek lennil a tápon található biztonági: opto, xx431x, stb. Az optocsatolót mérve jónak mutatkozott, a 431-es biztonsági IC szintén. Minden esetre egy más típusú 431-essel kapott próbát, hátha azzal beindul. Próba képpen a megjelenő kép az előző teszthez képest ennyit változott, hogy több ideig maradt fenn, megszűnésekor a power LED világítása továbbá is fennált. A biztonsági elemek körül lévő ellenállások 1%-os eltérése kezdett nagy gyanút kelteni a probléma okára, mivel az oda behelyezett „új” kondenzátotok értékei eltérnek a már „hozzá öregedett” ellenállás értékeitől, emiatt nem képes fenntartani a megfelelő biztonsági áramot, ahhoz, hogy a táp folyamat működjön. Mérések alapján: 10K ohm helyett 9K tündöklött, volt egy 10,50k ohm-os ellenállás, ami helyett 10,40K-t mértem, ez még talán nem túl nagy probléma, de hogy ezek helyette találjak egy normálisat majdnem hogy fél napig kerestem elő mindet, de ilyen 10,50-est akkor sem találtam volna, ha hittérítő szektásnak állok, :-) tehát maradt egy vele sorosba kötött + pár ohm-os érték. Biztos ami biztos már eleve az összes ellenállást megmértem, a LED vezérlő egység részénél egészen kiváló eredmények mutatkoztak. A FET gate meghajtásáért felelős 1%-os elenállás szintén gagyi volt, na és ott akörül egy huncut 82K 5%-os nagyteljesítményű is cserére került. (az eddigi hibás 80k ohm helyett) Ami csakugyan kerámiapaddal és rézcsővel került a helyére.&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt; Az alap, hibásnak vélt ellenállások a 431 és az opto körül (csere előtt)&nbsp; &lt;/tbody&gt;&lt;/table&gt; Az eddigi kis méretű (0,2W körüli) ellenállásokat normál méretű, (0,5-0,6W) nagyobbak váltották fel. Beüzemeléskor a monitoron a kép megjelent, de a háttérvilágítás nem akarta az igazak szavát. Méréseket követve a kép megjelenísésért felelős feszültség (5V) stabil volt, a háttérvilágításé viszont ingadozott. (20-15V). A panel vezetősávjait átvágva külső tápról hajtva egyből beindult, úgy hogy a LED meghajtó logikai bemenetei 3,3V-ról “szimulálva” lettek. Akkor már csak pár dolog lehetett gyanúsan problémás: valami zavarja a frekvenciát. (Hasonlóan mint az itt található Philis TV javítása cikkben.) A 431 mellett lévő noname feliratú 10nF-os kerámia kondenzátort felváltotta egy 103 1KV-os, és a LED meghajtásáért felelős feszültség szűrésénél a 63V 100nF-os kondit pedig egy 100V-os. A majdnem a végső próba során a kijelző teljes működést jelentett. ….egy darabig, :-) 10 perc után ismét elkezdett elmenni a LED, vagyis az áram ingadozni. Már más nem volt, ötletként, mint a gyárilagos hálózati kondi visszacserélése a kiváltandó 68uF 450V-os helyett, amit csak 85°C tűrési felirattal láttak el. Ebből ítélve nem lehetett valami komoly darab, de igazam is volt, a belső ellenállása jóval eltérő volt a gyári 105°C tűrési felirattal ellátott konditól. Tehát mivel jobbat nem találtam ment vissza a 68uF helyeti 67uF-os.Az utolsó próbát követve sikeres eredmény volt, nem ment el a háttérvilágítás hosszú üzem után sem. Pont összeállítás előtt “nagy sikerrel” levertem a villanyórát, a táp pozitív része kiért a testre, majd durr! Szerencsére csak a dióda híd puffant el, na meg az SCK a biztosíték és a zavarszűrő főtt meg, gyors mérések és alkatrész csere után az eredmény úgyszint kiváló volt, legalábbis eddig :-) bár hosszú élet tartamra igen kicsi az esély. (főleg ami a HP-s eszközöket mindig is illette, mármint tapasztalataim szerint)&lt;/span&gt; A tápegység alja teljes javítás után. Tápegység javított állapotában, a képen még a problémás 85°C-os hálózati kondival. (A háttérvilágítást vezérlő FET végezetül nem kapott hőtűbordát, a darab ráforrasztott réz lemezen kívül, mivel semmi melegedést nem lehetett tapasztalni a próbák során, így nem éreztem szükségesnek bármit is rátenni.) A monitor félig összeszerelten (&quot;önhűtéses&quot; megoldás) Ezt most így direkt a cikk végére hagytam, mert sajnos szervíz dokumentációt sehol nem tudtam fellelni, viszont a LED-es háttérvilágítás kivezérlő modul IC-jére (INL859RN) rákeresvén egy külföldi fórum nyújtott hatalmas segítséget.  -&gt;&gt;&gt; Link Az említett kapcsolás (megjelenítve a HP monitoron)","headline":"HP Compaq LE2202x 21,5” LED monitor javítása","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020-06-17-hp-compaq-le2202x-215-led-monitor/"},"url":"http://localhost:4000/2020-06-17-hp-compaq-le2202x-215-led-monitor/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HP Compaq LE2202x 21,5&quot; LED monitor javítása</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-06-17T13:26:00+02:00" itemprop="datePublished">Jun 17, 2020
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">ZoliHV95</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <span style="font-family: &quot;calibri&quot; , sans-serif; font-size: 11.0pt; line-height: 107%;">A
+probléma a monitoron megjelenő kép egyik felének szétesésével kezdődött, ez
+ki-be kapcsolás után helyre állt, majd egy idő útán ismét elkezdte, egyre
+bajosabban.<br />
+<br />
+Szétszedés után a tápegységen található kondenzátorok mindegyike hibás volt.
+(legalábbis mérések alapján, feldagadva egyik sem)<br /><br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7Kxpfh33Hf-9lYIPxYG1a7ON6MZxlV13dxwb6R36yCA-TECcL4DNb14GmdVO7ki4FeqmYsUsccoSqxZ-Yi-N_YAkITmXOGeH74gONQPl-dJzKvup9pjzbzmnurPBSUShMFc7N-CkQd3W/s1600/20200610_212500.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5'' LED monitor hibás táp" border="0" height="232" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7Kxpfh33Hf-9lYIPxYG1a7ON6MZxlV13dxwb6R36yCA-TECcL4DNb14GmdVO7ki4FeqmYsUsccoSqxZ-Yi-N_YAkITmXOGeH74gONQPl-dJzKvup9pjzbzmnurPBSUShMFc7N-CkQd3W/s400/20200610_212500.jpg" title="HP Compaq LE2202x 21,5'' LED monitor hibás táp" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Kép a tápegységről, alap (hibás) állapotában.</td></tr>
+</tbody></table>
+<br />
+Eleve keserű szájízzel álltam a dologhoz, mivel ez már nem az 1. HP eszköz,
+aminek a javítása sikertelennek bizonyult.<br />
+Az összes kondit, a rezgőkörtől, a hálózatig mindet cseréltem, és a pofátlanul
+kisméretű borda helyett valami normálisabb került rá a FET-re. Persze a dolgok
+kissé sem voltak egyszerűek, a gyártó szintén kedves volt: az elhelyezni kívánt
+hűtőfelülettel közvetlen volt a külső talprögzítő egyik csavar helyének a
+csöcse. Ezt kifaragással sikerült megoldani, úgy, hogy még pont használható is
+legyen rögzítésre. (hátha valaha még szükség lesz rá, bár erre kb. annyi az
+esély, mint egy ilyen HP monitor élettartamára) :-)<br />
+Pont akkora borda került rá, amekkora felér a ’kizsonglőrködött’ lemez
+tetejéig, ezáltal ’önhűtést’ végezhet az eszköz. Viszont a tápegység hálózati
+negatív része nem közös a GND-vel, ezért mindenképpen el kellett választani
+egymástól a kettőt (legalább a tetején lévő érintkezést megakadályozni).<br /><br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6mmoNFiGJn10F5ZQsfR7F1iF6yHwBPQKmtXkaXI4bJuloM5R-NNkksQgeXouQ6ZIJw8ptyYLE-cBFnXtv2NQWlRSjq-DQCURZ0YpqfDTqyWCXzQDY9a-BIjZ07a2c4FJsj6SR8xjX0QMn/s1600/20200614_234154.jpg" imageanchor="1" style="font-size: 11pt; margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5'' LED monitor &quot;önhűtés&quot; gnd elválasztás" border="0" height="202" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6mmoNFiGJn10F5ZQsfR7F1iF6yHwBPQKmtXkaXI4bJuloM5R-NNkksQgeXouQ6ZIJw8ptyYLE-cBFnXtv2NQWlRSjq-DQCURZ0YpqfDTqyWCXzQDY9a-BIjZ07a2c4FJsj6SR8xjX0QMn/s400/20200614_234154.jpg" title="HP Compaq LE2202x 21,5'' LED monitor &quot;önhűtés&quot; gnd elválasztás" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">A hűtőborda helyének kifaragott része és a földtől való elválasztása hővezető lappal.</td></tr>
+</tbody></table>
+<br />
+Folytatólagosan (az <a href="https://zolihv95.blogspot.com/2019/12/" target="_blank">itt</a> található egyik cikkből okulva: Philips TV) a más
+kényesebb félvezető eszközök is kaptak egy pirinyó hűtőfelületet.<br />
+<br />
+Végezetül a megjelenő kép vezérlő áramáért (5V) felelős tápon található SR506 schottky
+diódák cserélve lettek SB560-ra, a gyanúsan félhibás: 100 körüli értékek miatt.
+(A 2 dióda között adatlap szerint egy nagyon kicsi feszültség esés beli
+különbség található, de ez a kimeneti feszt nem befolyásolja terheléskor sem,
+legalábbis mérések alapján.)<br />
+<br />
+Az összes nagyteljesítményű dióda rézcsővel és kerámiapaddal biztosítva lett.<br />
+<br /><b><u>
+Próba</u></b>:<br />
+<br />
+Üzembe helyezéskor egy pillanatra megjelenő kép fogadott, majd a power LED kék
+villogása is egyre inkább kezdett megszűnni. (mérés alapján a tápfesz (5V)
+ilyenkor visszazuhant 2-3V-ra vagy ezalá)<br />
+Továbbá gyanúsak kezdtek lennil a tápon található biztonági: opto, xx431x, stb.<br />
+Az optocsatolót mérve jónak mutatkozott, a 431-es biztonsági IC szintén. Minden
+esetre egy más típusú 431-essel kapott próbát, hátha azzal beindul.<br />
+Próba képpen a megjelenő kép az előző teszthez képest ennyit változott, hogy
+több ideig maradt fenn, megszűnésekor a power LED világítása továbbá is
+fennált.<br />
+<br />
+A biztonsági elemek körül lévő ellenállások 1%-os eltérése kezdett nagy gyanút
+kelteni a probléma okára, mivel az oda behelyezett „új” kondenzátotok értékei
+eltérnek a már „hozzá öregedett” ellenállás értékeitől, emiatt nem képes
+fenntartani a megfelelő biztonsági áramot, ahhoz, hogy a táp folyamat működjön.<br />
+Mérések alapján: 10K ohm helyett 9K tündöklött, volt egy 10,50k ohm-os
+ellenállás, ami helyett 10,40K-t mértem, ez még talán nem túl nagy probléma, de
+hogy ezek helyette találjak egy normálisat majdnem hogy fél napig kerestem elő
+mindet, de ilyen 10,50-est akkor sem találtam volna, ha hittérítő szektásnak
+állok, :-) tehát maradt egy vele sorosba kötött + pár ohm-os érték.<br />
+<br />
+Biztos ami biztos már eleve az összes ellenállást megmértem, a LED vezérlő
+egység részénél egészen kiváló eredmények mutatkoztak. A FET gate meghajtásáért
+felelős 1%-os elenállás szintén gagyi volt, na és ott akörül egy huncut 82K
+5%-os nagyteljesítményű is cserére került. (az eddigi hibás 80k ohm helyett)
+Ami csakugyan kerámiapaddal és rézcsővel került a helyére.<br /><br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJiDA-MYnlQWF0sJ37f-AZFkFQtYMfm7nQX38STVCQTaNURC27PhmzEDdGF8HoQP-4JLEYwb-EPWuMdw_oFwSVFRNDxgcGb3-kg8fGOZeDt1lRe5R2bGFjVhDrgfP8NajJ6mfxmBoaI19D/s1600/20200610_212515.jpg" imageanchor="1" style="font-size: 11pt; margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5'' LED monitor hibás állapota (ellenállások)" border="0" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJiDA-MYnlQWF0sJ37f-AZFkFQtYMfm7nQX38STVCQTaNURC27PhmzEDdGF8HoQP-4JLEYwb-EPWuMdw_oFwSVFRNDxgcGb3-kg8fGOZeDt1lRe5R2bGFjVhDrgfP8NajJ6mfxmBoaI19D/s400/20200610_212515.jpg" title="HP Compaq LE2202x 21,5'' LED monitor hibás állapota (ellenállások)" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Az alap, hibásnak vélt ellenállások a 431 és az opto körül (csere előtt)&nbsp;</td></tr>
+</tbody></table>
+<br />
+Az eddigi kis méretű (0,2W körüli) ellenállásokat normál méretű, (0,5-0,6W) nagyobbak
+váltották fel.<br />
+<br />
+Beüzemeléskor a monitoron a kép megjelent, de a háttérvilágítás nem akarta az
+igazak szavát.<br />
+Méréseket követve a kép megjelenísésért felelős feszültség (5V) stabil volt, a
+háttérvilágításé viszont ingadozott. (20-15V).<br />
+A panel vezetősávjait átvágva külső tápról hajtva egyből beindult, úgy hogy a
+LED meghajtó logikai bemenetei 3,3V-ról "szimulálva" lettek.<br />
+Akkor már csak pár dolog lehetett gyanúsan problémás: valami zavarja a
+frekvenciát. (Hasonlóan mint az <a href="https://zolihv95.blogspot.com/2019/12/" target="_blank">itt</a> található Philis TV javítása cikkben.) A 431 mellett lévő noname feliratú 10nF-os kerámia kondenzátort
+felváltotta egy 103 1KV-os, és a LED meghajtásáért felelős feszültség
+szűrésénél a 63V 100nF-os kondit pedig egy 100V-os.<br />
+<br />
+A majdnem a végső próba során a kijelző teljes működést jelentett. ….egy
+darabig, :-) 10 perc után ismét elkezdett elmenni a LED, vagyis az áram
+ingadozni. <br />
+Már más nem volt, ötletként, mint a gyárilagos hálózati kondi visszacserélése a
+kiváltandó 68uF 450V-os helyett, amit csak 85°C tűrési felirattal láttak el.
+Ebből ítélve nem lehetett valami komoly darab, de igazam is volt, a belső
+ellenállása jóval eltérő volt a gyári 105°C tűrési felirattal ellátott
+konditól. Tehát mivel jobbat nem találtam ment vissza a 68uF helyeti 67uF-os.<br /><br />Az utolsó próbát követve sikeres eredmény volt, nem ment el a háttérvilágítás
+hosszú üzem után sem. Pont összeállítás előtt "nagy sikerrel" levertem a
+villanyórát, a táp pozitív része kiért a testre, majd durr! Szerencsére csak a
+dióda híd puffant el, na meg az SCK a biztosíték és a zavarszűrő főtt meg,
+gyors mérések és alkatrész csere után az eredmény úgyszint kiváló volt,
+legalábbis eddig :-) bár hosszú élet tartamra igen kicsi az esély. (főleg ami a
+HP-s eszközöket mindig is illette, mármint tapasztalataim szerint)<br /><br /></span><br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="font-family: Calibri, sans-serif; margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5KWRr3lPq0UmF9oxNMBwdr5Z6wfrhLoYV9CwBlHGD8Z3FT6FvanEgO1E4Wna9kU7Z7otEwt9dzH0fcPtV0_9356FqpfnNF3_ICM0r320SsgidQkpLrw-QI7Cpe_H8In1FO7z79K5nv_j6/s1600/20200614_232100.jpg" imageanchor="1" style="font-size: 11pt; margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5'' LED monitor táp alja (javítva)" border="0" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5KWRr3lPq0UmF9oxNMBwdr5Z6wfrhLoYV9CwBlHGD8Z3FT6FvanEgO1E4Wna9kU7Z7otEwt9dzH0fcPtV0_9356FqpfnNF3_ICM0r320SsgidQkpLrw-QI7Cpe_H8In1FO7z79K5nv_j6/s400/20200614_232100.jpg" title="HP Compaq LE2202x 21,5'' LED monitor táp alja (javítva)" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="font-size: 12.8px;">A tápegység alja teljes javítás után.</td></tr>
+</tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuCy_Lk0sPR-w3TKgw8V-haEqA7dEBxdbHxoJRIyasK8OhDINLS1g6pG7_2vzDiRuO9b9TgqqsNCEB3GCJonw0GiCnid8nmqpS4HyFcT55TS0KyMdeZejHAvvULjDF5DEMTPozZVa2N1I8/s1600/20200614_232114.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5&quot; LED monitor javított táp" border="0" height="230" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuCy_Lk0sPR-w3TKgw8V-haEqA7dEBxdbHxoJRIyasK8OhDINLS1g6pG7_2vzDiRuO9b9TgqqsNCEB3GCJonw0GiCnid8nmqpS4HyFcT55TS0KyMdeZejHAvvULjDF5DEMTPozZVa2N1I8/s400/20200614_232114.jpg" title="HP Compaq LE2202x 21,5&quot; LED monitor javított táp" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Tápegység javított állapotában, a képen még a problémás 85°C-os hálózati kondival. (A háttérvilágítást vezérlő FET végezetül nem kapott hőtűbordát, a darab ráforrasztott réz lemezen kívül, mivel semmi melegedést nem lehetett tapasztalni a próbák során, így nem éreztem szükségesnek bármit is rátenni.)</td></tr>
+</tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCdJCpZc4uDXw_me0mhd7DBSjRXn_qj85r5_gBL_uDFiz7RTZy3R1hw0WCOuYY-zGjC6AaoxJ-ZCx8htuVGRbItpBcjoAzRldBqolr4pENoJNMoRkCPJpZ7SWk9nRP4_phjh7foNWS8m0S/s1600/20200615_125450.jpg" imageanchor="1" style="font-size: 11pt; margin-left: auto; margin-right: auto;"><img alt="HP Compaq LE2202x 21,5'' LED monitor összerakás" border="0" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCdJCpZc4uDXw_me0mhd7DBSjRXn_qj85r5_gBL_uDFiz7RTZy3R1hw0WCOuYY-zGjC6AaoxJ-ZCx8htuVGRbItpBcjoAzRldBqolr4pENoJNMoRkCPJpZ7SWk9nRP4_phjh7foNWS8m0S/s400/20200615_125450.jpg" title="HP Compaq LE2202x 21,5'' LED monitor összerakás" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">A monitor félig összeszerelten ("önhűtéses" megoldás)</td></tr>
+</tbody></table>
+<span style="font-family: &quot;calibri&quot; , sans-serif;"><span style="font-size: 14.6667px;">Ezt most így direkt a cikk végére hagytam, mert sajnos szervíz dokumentációt sehol nem tudtam fellelni, viszont a LED-es háttérvilágítás kivezérlő modul IC-jére (INL859RN) rákeresvén egy külföldi fórum nyújtott hatalmas segítséget.&nbsp;&nbsp;</span></span><a href="https://www.elektroda.pl/rtvforum/topic3431623.html" style="font-family: Calibri, sans-serif; font-size: 14.6667px;" target="_blank">-&gt;&gt;&gt; Link</a><br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio283YuI6IY0npj8M_7FrczMvDxqSSaVF9mjPrANaaxovjq3DSNYF-bwBhc4Me18gmi0p5Ntq-_DssgADk_Lq2RI2DDlaJYkdCA4fGlwbqO7QBiSQPJgw4Pa16APvlyTbXtgxz2PyFseGp/s1600/20200616_232440.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img alt="HP Compaq  INL859RN LED driver" border="0" height="237" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio283YuI6IY0npj8M_7FrczMvDxqSSaVF9mjPrANaaxovjq3DSNYF-bwBhc4Me18gmi0p5Ntq-_DssgADk_Lq2RI2DDlaJYkdCA4fGlwbqO7QBiSQPJgw4Pa16APvlyTbXtgxz2PyFseGp/s400/20200616_232440.jpg" title="HP Compaq  INL859RN LED driver" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Az említett kapcsolás (megjelenítve a HP monitoron)</td></tr>
+</tbody></table>
+<br />
+  </div><a class="u-url" href="/2020-06-17-hp-compaq-le2202x-215-led-monitor/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Technikai egyveleg: elektronika, mechanika, retro cuccok, rájöttem, bekötöttem javítottam, terveztem</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">ZoliHV95</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

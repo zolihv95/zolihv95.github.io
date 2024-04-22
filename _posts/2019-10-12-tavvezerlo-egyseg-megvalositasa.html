@@ -1,0 +1,149 @@
+---
+layout: post
+title: Távvezérlő egység megvalósítása különböző típusú dekóderekkel és IC-kkel (HT12
+  és MT8870)
+date: '2019-10-12T06:55:00.001-07:00'
+author: ZoliHV95
+tags:
+modified_time: '2020-03-28T06:30:28.650-07:00'
+thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhE4IXnyKS2jNNnMtCvo1qe6S4w7xhAXp4U44oSFVLFoKMNWDLtUkxYEX51xSqk6fiCc2c4vfg0lmOtHvmU8eBZJUDhpVedJTEDSXHul6LCQJqbcy8ZJX55VV04ELnhItM-0NUxNs85ZG/s72-c/decoder+sw+01.png
+blogger_id: tag:blogger.com,1999:blog-2393920038510161029.post-4614371000835913986
+blogger_orig_url: https://zolihv95.blogspot.com/2019/10/tavvezerlo-egyseg-megvalositasa.html
+---
+
+<br />
+<br />
+<div class="" style="clear: both; text-align: justify;">
+A kapcsolás analóg IC-kkel valósít meg egy olyan vezérelni kívánt eszközt, ami egy vevő egységből és egy távvezérlőből áll. A vevőegységben 2 különböző vétel IC (egymástól függetlenül) üzemel, tehát az egyiknek távvezérlési módja saját távirányítójával történik, a másiknak adott, például: telefon, bluetooth modul, wifi, infra, stb. ad erre lehetőséget.<br /><br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div style="text-align: center;">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhE4IXnyKS2jNNnMtCvo1qe6S4w7xhAXp4U44oSFVLFoKMNWDLtUkxYEX51xSqk6fiCc2c4vfg0lmOtHvmU8eBZJUDhpVedJTEDSXHul6LCQJqbcy8ZJX55VV04ELnhItM-0NUxNs85ZG/s1600/decoder+sw+01.png" imageanchor="1"><img border="0" height="150" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhE4IXnyKS2jNNnMtCvo1qe6S4w7xhAXp4U44oSFVLFoKMNWDLtUkxYEX51xSqk6fiCc2c4vfg0lmOtHvmU8eBZJUDhpVedJTEDSXHul6LCQJqbcy8ZJX55VV04ELnhItM-0NUxNs85ZG/s400/decoder+sw+01.png" width="400" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="MsoNormal">
+<b><u><br />Szimulátorban és élesben való teszt után levont tapasztalatokat 6 pontban foglaltam össze.<br />Az IC-k viselkedését, a távvezérlő egység előnyeit és hátrányai egyaránt kivesézve</u>:</b><b><br /></b></div>
+<div style="text-align: center;">
+<b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7oHfFQByJN7kEbu52s77NTVawx0GjqrZWnjeatieyln6QAkIWMYrH6f4uEE013Z5T8gREVXJkV2eVwVidtJxrLIYhyDDtRSCCT4SochrsZDNXBI2o9Gzz0GG6ufpsxTocvzD8M5YmcD6h/s1600/HT12D+%252B+MT8870+simulation01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em; text-align: center;"><img border="0" data-original-height="1032" data-original-width="1262" height="325" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7oHfFQByJN7kEbu52s77NTVawx0GjqrZWnjeatieyln6QAkIWMYrH6f4uEE013Z5T8gREVXJkV2eVwVidtJxrLIYhyDDtRSCCT4SochrsZDNXBI2o9Gzz0GG6ufpsxTocvzD8M5YmcD6h/s400/HT12D+%252B+MT8870+simulation01.png" width="400" /></a></b></div>
+<b><br />1.: Enkóder normális kötése dekóderre:</b><br />
+<br />
+KS58006 vagy egyéb más tónus dekóder IC kimenete simán kötődik az MT8870 dtmf bemenetéhez.<br />
+Az MT8870-ás dekóder tónus bemenete előtt (a kondenzátor után) egy 10-100k ohmos
+ellenállás földel, nagy eséllyel enélkül a tónus képtelen átmenni, a gyári 100k
+ohmos értékeken lehet variálni, de nem szükséges, zavar szűrési szempontból megfelel
+ez így.<br />
+<br />
+<br />
+<b>
+2.: Adóegység dekóderének önreteszelése csak egy megoldással, a hátrányok
+csökkentésével:</b><br />
+<br />
+Az MT8870 StD és ToE csapja közös, ezáltal önreteszelést végez az IC. (Jelző
+LED-et is elbír pluszba.)<br />
+<br />
+Az önreteszelést elhagyva folyamatosan tárolt bitet sugároztat a dekóder (vevő)
+felé, ezt elkerülni csak úgy lehet, ha az StD a HT12E engedélyzező (TE)
+csapjába vezet, viszont ilyenkor nincs ami letilt, tehát a HT12D-ben tárolódó végső
+jelszint a vevő egységben marad. (a multiplexer a másik vevő segítségével átírni
+képes csak)<br />
+Ha önreteszelést végez az DTMF dekóder IC, akkor az dekódolás után
+autómatikusan magas szintre vált, a HT12D ezt tárolja, tehát egy tiltó 4
+bitet produkál, az adó rész üzembe lépését követően folyamatosan.<br />
+Alapból a vevőegység értéke: 0, mihelyst a HT12E aktiválódik, a HT12D átvált 0-ról
+„semmilyen” értékké, magyarán az össz. alacsony jelből hirtelen össz. magas lesz.<br />
+Ez nem okoz problémát, lehet tudni, hogy az adó kapcsolatba került a vevőegység
+HT12D-jével.<br />
+<u style="text-underline: dotted;">Probléma abból lehet, ha pont távvezérlés
+közben megszakad a vétel, mert a jelalak sajnos bent marad, ami a HT12D-t
+illeti</u>.<br />
+<br />
+<br />
+<b>
+3.: Leválasztás, reteszelés, egyszerű és szakszerű alkalmazás:</b><br />
+<br />
+Ha a vevőegység mindkét dekóderére érkezik vétel, akkor csak az egyik fog
+átmenni, mégpedig az MT8870 oldali. Vagyis a HT12D nem tud csinálni semmit: ha
+pont használatban van a DTMF dekóder, mert leválasztja onnét a HT12D-t. Jó
+szájba rágósan ez ennyi: a HT12D cselekvés képtelensége egyértelmű, mivel az
+nem végez reteszelést az csak ott van, a multiplexer lekapcsolni tud róla, mást
+nem. A 74ls157 átváltó (A/B) egy csapja pont megfelel ide, de ott van a CMOS 4019,
+ami két csapjával szintén jó, ha az egyik a kettő közül negálva van egy tranzisztorral.
+Esetleg egy 74ls158 megteszi, de ha megfelelő érték kijelzésére is szükség van, (pl.: 74ls47 ttl 7szegmenses dekóder esetében) akkor invertálni kell, ha nem invertáljuk úgy is használható távvezérlésre, a különbség,
+hogy pl.: egy 74ls154 (vagy 4514-es nem negált CMOS) demultiplexer IC-n megcserélődnek a kimenetek, nem felülről
+kezdi a számolást, hanem alulról.<br />
+Megjegyzés: Jelző LED beiktatásakor multiplexer IC tranzisztoros leválasztása
+célszerű (invertálás)! Itt az MT8870 önreteszelése szükségtelen, ezt a
+multiplexer elvégzi, tehát ToE mehet fel pluszba, az StD a multiplexerre.<br />
+<br />
+<br />
+&nbsp;<b>4.: A 4 bites dekóder / demultiplexer alkalmazása:</b><br />
+<br />
+74ls154 ttl ill. 4515 és nem negált kimenetű 4514 CMOS változata egyaránt használható.<br />
+Ezek a demultiplexerek negált (invertált, fordított) ill. nem negált 4 bites bemeneti jelalakkal ugyan úgy
+viselkednek, annyi különbséggel, hogy a számlálás megfordul pl.: nem felülről
+kezd, hanem alulról, ettől függetlenül használható. Kivétel, ha a 4 bit
+megcserélődik tehát: ABCD helyett DCBA-ra át van kötve, akkor a demultiplexer
+kimenete értelmetlenül viselkedik, nem sorban jelennek meg kimenetek, használata
+így alkalmatlannak tekinthető.<br />
+<br />
+Tehát ha a 4 bites sorrend helyes: a dekóder IC-k felölről alulra számolják az
+ABCD szabványnak megfelelően a dekódolást. 1, 2, 3, 4, 5, 6, stb. Egyenként, sorban
+jelennek meg a kimenetek. (Ennél az áramkörnél az IC első csapja vagyis a 0 kihagyása
+szükséges)<br />
+<br />
+<br />
+<b>
+5.: Relé vezérlése egy tároló IC funkciójával:</b><br />
+<br />
+Hagyományos CMOS 4044-es R/S latch retesz vagyis tároló IC gondoskodik a
+vezérelni kívánt relék be ill. kikapcsolásának fenntartásáról. A 4 bitből 8 kód
+szükséges: egyel kapcsol, egyel kiold, így a 4 relé sikeres be/ki kapcsoló
+funkciót végez. CMOS helyett TTL alternatíva nem igen fordul elő a 74ls279-en kívül. <br />
+Tranzisztorok alkalmazásával lehetséges egy ilyen IC megépítése, de nem feltétlenül stabil a működése. Ezt a funkciót csak 4011-es NAND (ill. 4001-es NOR) IC-ből
+„kovácsolt” R/S latch tudja biztosan szolgáltatni 4044 helyett, ha éppen csak 1
+vagy 2 logikára lenne szükség. De ha mindenképpen 4 vagy több kell, akkor
+kifizetődőbb a komplett R/S latch IC, mint telezsúfolni az áramkört (4001 vagy) 4011-esekkel.<br />
+<br />
+Létezik 4043-as változat, ami az áramkörben nem negált kimenetű demultiplexerrel alkalmazható (pl.: 4514-el).<br />
+<br />
+<br />
+<b>
+6.: Relé leválasztása, megfelelő feszültséggel való táplálása:</b><br />
+<br />
+A hagyományos pl.: BC547B NPN vagy a BC557B PNP testvére egyaránt alkalmas a
+relé kapcsolására. Ehhez az áramkörhöz NPN tranzisztor célszerű.<br />
+Ennek alkalmazásánál a relék közé kötelező az ellengerjedés megakadályozása
+egy védődiódával! (pl.: 1n4007, 1n4148)<br />
+<br />
+ULN2XXX típusú IC-s levélasztás kifizetődőbb, ami beépített védő diódát is
+tartalmaz, így a relék közé nem feltétlenül kötelező, azért egy kisjelű 1n4148
+nem árt oda pluszba! (IC-s alkalmazással akár 4-nél több relé üzemeltetésére is
+lenne lehetőség. Pl.: ULN2803-as IC 8 relét kihajt.)<br />
+<br />
+<br />
+Ha a fő tápellátás szabványa például a 9-től 12V-ot követi, célszerűbb az
+áramkörben 12V helyett 9V-os relét alkalmazni, főleg ha elemről vagy akkuról
+üzemel az eszköz, mert feszültség eséskor, merüléskor nem kell a relék kevés
+táplálékától tartani. Legjobb 9V helyett 12V-os akkut, elemet használni.
+Viszont ha mindenképpen hálózatról üzemel az eszköz, akkor legjobb betartani a
+feszültséget, tehát ha 9V-os relé alkalmazásánál, 9V-os legyen az adapter.<br />
+<br />
+Akku példa:<br />
+9V-os relé szabvány: 3db 18650 Li-ion akku sorba kötve: 3,7 x 3 = <u style="text-underline: dotted;">11,1V</u> ami ennél gyakorlatban több (4,2-vel
+számolva), tehát pont szakszerű! <br />
+12V-os relé szabvány: 4db 18650 Li-ion akku sorba kötve: 3,7 x 4 = <u style="text-underline: dotted;">14,8V</u> ami kitűnő!<br />
+Amúgy az alkalmazni kívánt relé adatlapja tartalmazni szokta a minimális és
+maximális feszültség határokat! Általában a relék tűrése saccra kb.: [9V-os:
+6V-tól 12V-ig] [12V-os: 9V-tól 20V-ig]<br />
+<div style="text-align: center;">
+<div style="text-align: left;">
+<br />
+Összességében működést ítélve elég stabil, még teszteléseket igényel a projekt, a végleges verzió elkészülését követően...</div>
+<br />
+<iframe allowfullscreen="" class="YOUTUBE-iframe-video" data-thumbnail-src="https://i.ytimg.com/vi/xwZmTYJg1aU/0.jpg" frameborder="0" height="266" src="https://www.youtube.com/embed/xwZmTYJg1aU?feature=player_embedded" width="320"></iframe></div>
+<div style="text-align: left;">
+(A videón látható: az adóegység rákapcsolódásával eltűnik a 0, mert a folytonos alacsonyról, folytonos magas jelekre vált a HT12D, a HT12E üzembe lépésekor.)</div>
+<br />
+<br />

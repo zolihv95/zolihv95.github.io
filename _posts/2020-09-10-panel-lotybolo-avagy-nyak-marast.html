@@ -1,0 +1,90 @@
+---
+layout: post
+title: Panel lötybölő, avagy NYÁK marást gyorsító mixer és fűtő készítése
+date: '2020-09-10T06:01:00.009-07:00'
+author: ZoliHV95
+tags:
+modified_time: '2020-09-10T10:23:08.868-07:00'
+thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqzmPJB-EVh42WGRvGmqnEiTkVbrlqzgkBNrnsH0hQqAHTey1m_Sl0EPf86Xvq4w7c1-UzgL0_P59Futxfa-mRDfV-hzwOLd_VLH3oFkAvMt20IqLTIUPMaftd0pxqYoiNAU8MUFQ8RwSc/s72-w400-c-h114/555+pwm+motor+pcb+mixer+001.jpg
+blogger_id: tag:blogger.com,1999:blog-2393920038510161029.post-1723251966149730450
+blogger_orig_url: https://zolihv95.blogspot.com/2020/09/panel-lotybolo-avagy-nyak-marast.html
+---
+
+<p><span face="Calibri, sans-serif" style="font-size: 11pt;">Kezdetben
+azt hinné az ember ez mekkora hülyeség, persze egész addig míg nem kezdi magát
+egy néma, unalmas váróteremben képzelni. A marási idő függ a használandó vegyszer
+típusától, aki hidrogén peroxidotalkalmaz sósavval, talán szerencsésebb, én
+nátrium-perszulfátot, mivel azt lehetett legkönnyebben beszerezni webáruházból
+sok más kellékkel együtt. De legalább ez nem mar alá, mert állítólag preciziós,
+bár nem tudom, mennyivel igaz ez az egyébmás vegyszerekhez képest, minden
+esetre szépen lehet vele dolgozni. Amúgy meg mindegyik tökölős akármennyivel is
+gyorsabb tehát a lötyögtetőt elkészíteni mindenképpen érdemes, esetleg
+kombinálni egy forróvizes fürdővel, amit van lehetőség akár külön elektromosan
+fűteni is.</span></p><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><b>1. Az elkészítés kezdete:</b><br />
+<br />
+Először kell egy alap amire rákreáljuk. Ennél a pontnál nálam egy tálca kapott
+helyet, gondolva arra, ha kicsordul a vegyszer, ne folyjék olyan helyre ahova
+nem kéne. (Később mondjuk ez szolgál melegvizes gyorsítónak a marást illetően)<br />
+<br /><b>2. A hajtás, áttétel kialakítása:</b><br />
+<br />
+Kell egy villanymotor és mindenképpen egy áttétel, ez lehet csiga vagy
+fogaskerekes. Szerencsémre a műhely sarkából előguberáltam egy kocsi autómata
+zár vagy ablak elektromos mozgató alkatrészét.<br />
+Ennek az áttétele sajnos túl lassú volt, így az egyik fogaskereket kihagyva az
+eszközt átalakítva került megvalósításra, kis barkácsolást követően.<br />
+<br /><b>3. Fordulat szabályzó elkészítése: (vagy beszerzése)</b><br />
+<br />
+A mondatot NE555-el kezdem, ebből minden hobbielektronikus tudja mire gondolok
+(pwm). De ennél még egyszerűbb, praktikusabb megoldás egy akkumulátoros fúrógép
+szabályzójából bontott impulzusszélesség moduláció kimonyákolása. Ha ezzel külön
+potméterrel szeretnénk megoldani, kevés átalakításra szükség van, amire nem
+térek ki, mivel íródott itt hasonló cikk: <a href="https://zolihv95.blogspot.com/2020/05/gravirozo-vagy-nyak-furo-keszitese.html">Gravírozó készítésénél</a>. De mivel elfogytak
+a hulladék fúróból bontott elektronikák, emiatt az egyik 'lönybölőhöz' kénytelen voltam én magam csinálni, aminek a kapcsolásáról egy fotó is
+hozzájárul a cikkhez!<br /><div style="text-align: center;"><br /></div></span><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;"><tbody><tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqzmPJB-EVh42WGRvGmqnEiTkVbrlqzgkBNrnsH0hQqAHTey1m_Sl0EPf86Xvq4w7c1-UzgL0_P59Futxfa-mRDfV-hzwOLd_VLH3oFkAvMt20IqLTIUPMaftd0pxqYoiNAU8MUFQ8RwSc/s2989/555+pwm+motor+pcb+mixer+001.jpg" style="margin-left: auto; margin-right: auto;"><img alt="555 pwm motor driver" border="0" data-original-height="853" data-original-width="2989" height="114" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqzmPJB-EVh42WGRvGmqnEiTkVbrlqzgkBNrnsH0hQqAHTey1m_Sl0EPf86Xvq4w7c1-UzgL0_P59Futxfa-mRDfV-hzwOLd_VLH3oFkAvMt20IqLTIUPMaftd0pxqYoiNAU8MUFQ8RwSc/w400-h114/555+pwm+motor+pcb+mixer+001.jpg" title="555 pwm motor driver" width="400" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">A kapcsolás tartalmazza a 12V-os stabkocka kimenetét, mivel a hozzá készült keverő eszköz fordulat váltó reléi igényelték. (5. pont) (A motorok 24V-ról üzemelnek.)<br /></td></tr></tbody></table><br /><blockquote style="border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;"><br /><blockquote style="border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;"><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"></span></blockquote></blockquote><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;">Szerencsére (jobb esetben) ezek a motorok nem esznek akkorát terhelés szinten,
+tehát megteszi gyengébb FET és Schottky dióda az elektronika elkészítéséhez.<br />
+<br /><b>4. Fűtő eszköz kialakítása: (ha már az alapnak tál jutott)</b><br /><br />
+Ha maximalistán akarunk eljárni és nincs kedvünk még plusz 5 percet sem várni a
+marás végeztéig, akkor nem lesz elég csak simán meleg vízzel körbebuggyantani „lötybölős”
+edényt, tehát külön fűteni kell.<br />
+Ennek megteszi egy gyári vízmelegítő a tál oldalába aggasztva, de ha már
+barkácsolásról van szó és precízebbek, korrektebbek szeretnénk lenni a dologhoz,
+akkor valami kisebb, praktikusabb, hosszabban elnyúló fűtőtestről lehetne szó,
+ami azért magára hagyva az eszközt nem is okoz problémát esetleg túlfűtés miatt,
+stb.<br />
+Erre a legalkalmatosabb a ruhában, takaróban, lábmelegítőben vagy akár autó
+ülésfűtésében található hosszú gumi szigetelt zsineg, ami garantáltan nem megy
+fel 200°C fölé, így biztonságos, mármint csak ebből a szempontból. :-) Ugyanis
+ezek többsége 230V-osak tehát a szigetelésről gondoskodni kell, esetleg előtte fázisceruzával
+kipróbálni egy tál vízben nem-e kontaktos. Ha netalántán az, de fűt, nem kell
+megijedni, a bojlerben alkalmazott 300°C-os sziloplaszttal orvosolhatjuk a gondot.<br />
+(Az alkalmazásomban ugyan így jártam: 2db 230V-os fűtőszál közül az egyik
+átengedte a hálózati áramot, majd nem csak végig kentem szilikonnal, hanem még
+a tálca oldalába is azzal ragasztottam bele, a száradás után többször
+teszteltem, teljesen megszűnt a vezetés, legalábbis eddig még nem rázott meg)
+:)<br />
+Az alacsonyabb feszültségű ruhafűtők beszerzése szerencsésebb, esetleg egy
+leválasztó trafó vagy táp a 230V-os fűtő elé még több biztonságot jelenthet. (Mondjuk
+én maradtam csak a sima szigetelésnél, azt kész.)&nbsp;&nbsp;</span><span face="&quot;Segoe UI Emoji&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-bidi-font-family: &quot;Segoe UI Emoji&quot;; mso-bidi-language: AR-SA; mso-fareast-font-family: &quot;Segoe UI Emoji&quot;; mso-fareast-language: HU;">:-)<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmAg7NlShJnq91BSL4_GGLf7ghQG6STjmafuujp_vBFuYoLP0Gyoog79PgpK2GCERuiO1r3p9aw4KbXAd3zBE91fdmCvLfRtwKcrCndpqF-LO2WAPf4V9RkOx1gJK4fk2aIXU9XrKcjRxy/s2048/20200809_142634.jpg" style="font-family: &quot;times new roman&quot;; font-size: medium; margin-left: 1em; margin-right: 1em; text-align: center;"><img alt="panel mixer futos 01" border="0" data-original-height="1152" data-original-width="2048" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmAg7NlShJnq91BSL4_GGLf7ghQG6STjmafuujp_vBFuYoLP0Gyoog79PgpK2GCERuiO1r3p9aw4KbXAd3zBE91fdmCvLfRtwKcrCndpqF-LO2WAPf4V9RkOx1gJK4fk2aIXU9XrKcjRxy/w400-h225/20200809_142634.jpg" title="panel mixer futos 01" width="400" /></a></div><div style="text-align: left;"></div><br /><div style="text-align: center;"><object class="BLOG_video_class" contentid="ba1dbdf6f1025063" height="266" id="BLOG_video-ba1dbdf6f1025063" width="320"></object></div>
+
+</span><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><br /><b>5. „Verzió 2.0”
+avagy még egy keverő szerkezet készült:</b><br />
+<br />
+Mindenképpen csináltam még egy lötybölő szerkezetet, ami már más mechanikai
+elven működik, mint az előző: egy autó visszapillantó tükör állító motoros
+mechanikájára került rárögzítésre egy tál, amiben a lötyögtetni kívánt edény
+helyezkedik el az őt körülvevő forróvizes fürdőben. A motorok fordulat
+váltásáról relék és logikai IC-k gondoskodnak, a nagyon egyszerű kiépíthető S/R
+latch tároló funkciónak köszönhetően, amit erre alkalmatos CD4043/ 44 gyári S/R
+tároló IC-k típusaival még egyszerűbben meglehetne tenni, de inkább maradtam a CD4001/
+11 típus valamelyikénél, mivel ezekkel amúgy is Dunát lehetne rekeszteni. Komolyabb kapcsolási rajzot nem teszek közzé, azért nem mert az alkalmazás széleskörű, akár
+egyszerűbb módszer is létezne, ha az ember tovább gondolkodna pl.: D tároló IC-k,
+a buffer IC-ktől elkezdve a végtelenségig.<br /></span><br /><blockquote style="border: none; margin: 0px 0px 0px 40px; padding: 0px;"><blockquote style="border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;"><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTtGrTxaWMi3sJHUirFAEHLOSbXobzBaUHMHBCmpBwlky5WdZ2r8M_oAcQj4I1TTUMDMxslAANZ25-KS5hcByeteu7F6tKd4-7qCNNGnH_x7_MjkmTPgA3jXNJ6gHGDDQwMYZmbUEI4HVs/s2317/rel+logikai+panel+mixer.JPG" style="font-size: medium; margin-left: 1em; margin-right: 1em; text-align: center;"><img alt="relay logic cd4011" border="0" data-original-height="967" data-original-width="2317" height="168" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTtGrTxaWMi3sJHUirFAEHLOSbXobzBaUHMHBCmpBwlky5WdZ2r8M_oAcQj4I1TTUMDMxslAANZ25-KS5hcByeteu7F6tKd4-7qCNNGnH_x7_MjkmTPgA3jXNJ6gHGDDQwMYZmbUEI4HVs/w400-h168/rel+logikai+panel+mixer.JPG" title="relay logic cd4011" width="400" /></a></span></blockquote></blockquote><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><br />&nbsp;Az elkészült „remekművel” nem vagyok túlságosan megelégedve, lehet, hogy időt
+nyer az ember, viszont cserébe lesz egy fejfájás a motor zúgásából fakadóan ez
+garancia! :’D<br /><br /><br /></span><div class="separator" style="clear: both; text-align: center;"><object class="BLOG_video_class" contentid="905cbfda63caa164" height="266" id="BLOG_video-905cbfda63caa164" width="320"></object></div><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><div style="text-align: left;"><div style="text-align: center;"><span style="font-size: 11pt;">A videón látható, még nincs rajta a főtűszál, csak simán, melegvíz köréöntésével lett gyorsítva a maratás.</span></div><br /><br /></div><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;"><tbody><tr><td style="text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0tS-Rfm4exzsYUs2OnxhGi3sVxDMhCRy7wdR3mjQuVZ9bRxU_ppuSpphXtgIO4qPXLJ_N4LNKQoezgHeTJAMHGBstusRpgxPbt8are6Uv3BfQrwpcsGEJSdQT2t_kJiSsgVmYdY8paaCk/s2048/20200726_181827.jpg" style="margin-left: auto; margin-right: auto;"><img alt="2.0 panel mixer logic relay" border="0" data-original-height="2048" data-original-width="1779" height="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0tS-Rfm4exzsYUs2OnxhGi3sVxDMhCRy7wdR3mjQuVZ9bRxU_ppuSpphXtgIO4qPXLJ_N4LNKQoezgHeTJAMHGBstusRpgxPbt8are6Uv3BfQrwpcsGEJSdQT2t_kJiSsgVmYdY8paaCk/w348-h400/20200726_181827.jpg" title="2.0 panel mixer logic relay" width="348" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">A panel mixer kezdetekor, mikor még nem tartalmazott fűtőszálat.<br /></td></tr></tbody></table></span><span face="&quot;Calibri&quot;,sans-serif" style="font-size: 11pt; line-height: 107%; mso-ansi-language: HU; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-bidi-language: AR-SA; mso-bidi-theme-font: minor-bidi; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: HU; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin;"><div style="text-align: left;"><br /><br /></div>A verzió 3.0 nem készült el, de érdemes megemlíteni eme primitív szerkezetet
+még hova lehetne butítani, (vagy fejleszteni) hát igen! :D<br />
+A mechanikai elemek zöme, az áttételek akár mind elhagyhatóak lehetnének
+léptető motor használatával, akinek rengeteg van otthon feleslegbe, mellékesen tud
+gondoskodni az ezt kihajtó IC-ről, vagy akár egyéb félvezetőkről, akkor egy viszonylag
+középerős motorral megoldható az egész egyszerűen közvetlen hajtással, aminek
+az elektronikája önmagában foglalja a szabályzást. (Sőt, cserébe a motorból
+fakadó vibráció és rezgés a folyadék mozgását még jobban elősegíti)&nbsp;&nbsp;</span><span face="&quot;Segoe UI Emoji&quot;, sans-serif" style="font-size: 11pt;">:-)<br /><br /></span><span style="text-align: center;">Útbaigazítás képpen, annyi, hogy a logikai IC-ket és az egyéb bemeneteket mindenképpen célszerű 5V-al stabilizálni. Minimum 3A-es motor meghajtó (bridge) IC szükséges, egy jó középbitang léptetőmotornak a kellő edény elmozdításához. Akár többfázisú motor is alkalmazható és az ehhez megfelelő motormeghajtás.<br /></span><br />
